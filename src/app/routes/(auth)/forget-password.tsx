@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
-export const Route = createFileRoute("/forget-password")({
+export const Route = createFileRoute("/(auth)/forget-password")({
   component: RouteComponent,
 
   validateSearch: z.object({
