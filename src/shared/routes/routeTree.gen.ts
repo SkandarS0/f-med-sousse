@@ -9,25 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './../../app/routes/__root.tsx'
-import { Route as authenticatedRouteRouteImport } from './../../app/routes/(authenticated)/route.tsx'
+import { Route as PortalRouteRouteImport } from './../../app/routes/portal/route.tsx'
 import { Route as authRouteRouteImport } from './../../app/routes/(auth)/route.tsx'
-import { Route as authenticatedIndexRouteImport } from './../../app/routes/(authenticated)/index.tsx'
+import { Route as PortalIndexRouteImport } from './../../app/routes/portal/index.tsx'
 import { Route as authResetPasswordRouteImport } from './../../app/routes/(auth)/reset-password.tsx'
 import { Route as authLoginRouteImport } from './../../app/routes/(auth)/login.tsx'
 import { Route as authForgetPasswordRouteImport } from './../../app/routes/(auth)/forget-password.tsx'
 
-const authenticatedRouteRoute = authenticatedRouteRouteImport.update({
-  id: '/(authenticated)',
+const PortalRouteRoute = PortalRouteRouteImport.update({
+  id: '/portal',
+  path: '/portal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const authRouteRoute = authRouteRouteImport.update({
   id: '/(auth)',
   getParentRoute: () => rootRouteImport,
 } as any)
-const authenticatedIndexRoute = authenticatedIndexRouteImport.update({
+const PortalIndexRoute = PortalIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => authenticatedRouteRoute,
+  getParentRoute: () => PortalRouteRoute,
 } as any)
 const authResetPasswordRoute = authResetPasswordRouteImport.update({
   id: '/reset-password',
@@ -46,53 +47,59 @@ const authForgetPasswordRoute = authForgetPasswordRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/portal': typeof PortalRouteRouteWithChildren
   '/forget-password': typeof authForgetPasswordRoute
   '/login': typeof authLoginRoute
   '/reset-password': typeof authResetPasswordRoute
-  '/': typeof authenticatedIndexRoute
+  '/portal/': typeof PortalIndexRoute
 }
 export interface FileRoutesByTo {
   '/forget-password': typeof authForgetPasswordRoute
   '/login': typeof authLoginRoute
   '/reset-password': typeof authResetPasswordRoute
-  '/': typeof authenticatedIndexRoute
+  '/portal': typeof PortalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(auth)': typeof authRouteRouteWithChildren
-  '/(authenticated)': typeof authenticatedRouteRouteWithChildren
+  '/portal': typeof PortalRouteRouteWithChildren
   '/(auth)/forget-password': typeof authForgetPasswordRoute
   '/(auth)/login': typeof authLoginRoute
   '/(auth)/reset-password': typeof authResetPasswordRoute
-  '/(authenticated)/': typeof authenticatedIndexRoute
+  '/portal/': typeof PortalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/forget-password' | '/login' | '/reset-password' | '/'
+  fullPaths:
+    | '/portal'
+    | '/forget-password'
+    | '/login'
+    | '/reset-password'
+    | '/portal/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/forget-password' | '/login' | '/reset-password' | '/'
+  to: '/forget-password' | '/login' | '/reset-password' | '/portal'
   id:
     | '__root__'
     | '/(auth)'
-    | '/(authenticated)'
+    | '/portal'
     | '/(auth)/forget-password'
     | '/(auth)/login'
     | '/(auth)/reset-password'
-    | '/(authenticated)/'
+    | '/portal/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   authRouteRoute: typeof authRouteRouteWithChildren
-  authenticatedRouteRoute: typeof authenticatedRouteRouteWithChildren
+  PortalRouteRoute: typeof PortalRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/(authenticated)': {
-      id: '/(authenticated)'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof authenticatedRouteRouteImport
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(auth)': {
@@ -102,12 +109,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(authenticated)/': {
-      id: '/(authenticated)/'
+    '/portal/': {
+      id: '/portal/'
       path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof authenticatedIndexRouteImport
-      parentRoute: typeof authenticatedRouteRoute
+      fullPath: '/portal/'
+      preLoaderRoute: typeof PortalIndexRouteImport
+      parentRoute: typeof PortalRouteRoute
     }
     '/(auth)/reset-password': {
       id: '/(auth)/reset-password'
@@ -149,20 +156,21 @@ const authRouteRouteWithChildren = authRouteRoute._addFileChildren(
   authRouteRouteChildren,
 )
 
-interface authenticatedRouteRouteChildren {
-  authenticatedIndexRoute: typeof authenticatedIndexRoute
+interface PortalRouteRouteChildren {
+  PortalIndexRoute: typeof PortalIndexRoute
 }
 
-const authenticatedRouteRouteChildren: authenticatedRouteRouteChildren = {
-  authenticatedIndexRoute: authenticatedIndexRoute,
+const PortalRouteRouteChildren: PortalRouteRouteChildren = {
+  PortalIndexRoute: PortalIndexRoute,
 }
 
-const authenticatedRouteRouteWithChildren =
-  authenticatedRouteRoute._addFileChildren(authenticatedRouteRouteChildren)
+const PortalRouteRouteWithChildren = PortalRouteRoute._addFileChildren(
+  PortalRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   authRouteRoute: authRouteRouteWithChildren,
-  authenticatedRouteRoute: authenticatedRouteRouteWithChildren,
+  PortalRouteRoute: PortalRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
