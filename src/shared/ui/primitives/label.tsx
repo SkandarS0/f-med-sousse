@@ -4,6 +4,7 @@ import { cn } from "@/shared/lib/utils";
 
 function Label({ className, ...props }: React.ComponentProps<"label">) {
   return (
+    // biome-ignore lint/a11y/noLabelWithoutControl: <label> is used as a wrapper for custom inputs
     <label
       data-slot="label"
       className={cn(
