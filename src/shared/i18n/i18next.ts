@@ -1,6 +1,7 @@
 import i18next from "i18next";
 import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
+import { zodConfig } from "../config/zod";
 import enMessages from "./en/messages";
 import enSharedUi from "./en/shared_ui";
 import enValidation from "./en/validation";
@@ -48,5 +49,9 @@ export const i18nextInstance = i18next
     defaultNS: "messages",
     resources,
   });
+
+i18nextInstance.on("languageChanged", () => {
+  zodConfig(i18nextInstance);
+});
 
 i18nextInstance.init();
