@@ -5,7 +5,7 @@ import "../styles/tailwind.css";
 import { I18nextProvider } from "react-i18next";
 import { routerInstance } from "@/shared/config/tanstack-router";
 import { i18nextInstance } from "@/shared/i18n/i18next";
-import reportWebVitals from "@/shared/lib/reportWebVitals";
+import reportWebVitals from "@/shared/lib/web-vitals";
 
 const router = routerInstance();
 
