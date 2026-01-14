@@ -2,15 +2,23 @@ import i18next from "i18next";
 import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import enMessages from "./en/messages";
+import enSharedUi from "./en/shared_ui";
+import enValidation from "./en/validation";
 import frMessages from "./fr/messages";
+import frSharedUi from "./fr/shared_ui";
+import frValidation from "./fr/validation";
 
 export const defaultNS = "messages";
 export const resources = {
   fr: {
     messages: frMessages,
+    shared_ui: frSharedUi,
+    validation: frValidation,
   },
   en: {
     messages: enMessages,
+    shared_ui: enSharedUi,
+    validation: enValidation,
   },
 } as const;
 export const i18nextInstance = i18next
