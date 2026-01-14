@@ -1,15 +1,11 @@
 // import the original type declarations
 import "i18next";
 // import all namespaces (for the default language, only)
-import type messages from "@/shared/i18n/fr/messages.json";
-import type models from "@/shared/i18n/fr/models.json";
+import type { resources } from "@/shared/i18n/i18next";
 
 declare module "i18next" {
   interface CustomTypeOptions {
     defaultNS: "messages";
-    resources: {
-      messages: typeof messages;
-      models: typeof models;
-    };
+    resources: (typeof resources)["fr"];
   }
 }
