@@ -1,5 +1,5 @@
 import { TanStackDevtools } from "@tanstack/react-devtools";
-import { FormDevtoolsPanel } from "@tanstack/react-form-devtools";
+import { formDevtoolsPlugin } from "@tanstack/react-form-devtools";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
@@ -16,10 +16,7 @@ export function TanstackDevToolsIntegration() {
           name: "Tanstack Query",
           render: <ReactQueryDevtoolsPanel />,
         },
-        {
-          name: "Tanstack Form",
-          render: <FormDevtoolsPanel />,
-        },
+        formDevtoolsPlugin(),
       ]}
     />
   );
