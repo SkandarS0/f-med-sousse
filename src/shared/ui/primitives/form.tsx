@@ -74,25 +74,27 @@ function FormFieldLabel({ className, ...props }: FieldLabelProps) {
 
 function FormFieldErrors({
   className,
-  children,
   errors,
   ...props
 }: FieldErrorProps & { errors: z.core.$ZodRawIssue[] }) {
   if (errors.length === 0) {
     return null;
   }
+
+  const isSingleError = errors.length === 1;
+
   return (
     <FieldPrimitive.Error
       data-slot="field-error"
       render={() => (
         <div className={cn("text-destructive text-sm font-normal", className)}>
-          {errors.length === 1 ? (
+          {isSingleError ? (
             errors[0].message
           ) : (
             <ul className="ml-4 flex list-disc flex-col gap-1">
               {errors.map(
-                (error, index) =>
-                  error?.message && <li key={index}>{error.message}</li>,
+                (error) =>
+                  error.message && <li key={error.code}>{error.message}</li>,
               )}
             </ul>
           )}
