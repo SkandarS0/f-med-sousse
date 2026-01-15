@@ -23,8 +23,6 @@ export const resources = {
   },
 } as const;
 export const i18nextInstance = i18next
-  .use(I18nextBrowserLanguageDetector)
-  .use(initReactI18next)
   .createInstance({
     debug: import.meta.env.DEV,
     detection: {
@@ -48,7 +46,9 @@ export const i18nextInstance = i18next
     },
     defaultNS: "messages",
     resources,
-  });
+  })
+  .use(I18nextBrowserLanguageDetector)
+  .use(initReactI18next);
 
 i18nextInstance.on("languageChanged", () => {
   zodConfig(i18nextInstance);
