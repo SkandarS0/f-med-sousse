@@ -4,6 +4,7 @@ import "../styles/tailwind.css";
 import reportWebVitals from "@/shared/lib/web-vitals";
 import { LocaleProvider } from "../providers/locale-provider";
 import { AppRouterProvider } from "../providers/router-provider";
+import { ThemeProvider } from "../providers/theme-provider";
 
 // Render the app
 const rootElement = document.getElementById("app");
@@ -12,7 +13,9 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <LocaleProvider>
-        <AppRouterProvider />
+        <ThemeProvider>
+          <AppRouterProvider />
+        </ThemeProvider>
       </LocaleProvider>
     </StrictMode>,
   );
