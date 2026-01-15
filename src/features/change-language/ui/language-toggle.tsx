@@ -1,3 +1,4 @@
+import { IconLanguage } from "@tabler/icons-react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui/primitives/button";
@@ -29,7 +30,9 @@ function DropdownMenuLanguageToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button variant="outline">{i18n.language.toUpperCase()}</Button>
+          <Button size={"icon-lg"} variant="outline">
+            <IconLanguage />
+          </Button>
         }
       />
       <DropdownMenuContent withArrow>
