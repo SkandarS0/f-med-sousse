@@ -1,4 +1,5 @@
 import { Outlet } from "@tanstack/react-router";
+import { LanguageToggle } from "@/features/change-language";
 
 export function UnauthenticatedLayout() {
   return (
@@ -18,16 +19,31 @@ export function UnauthenticatedLayout() {
 
 function UnauthenticatedHeader() {
   return (
-    <header className="shrink-0 px-6 py-4 border-b">
-      Unauthenticated Header
+    <header className="shrink-0 p-3 border-b bg-muted/50">
+      <div className="flex items-center">
+        <img
+          src="/official-logo.svg"
+          alt="F-Med Sousse Logo"
+          className="h-16 w-auto"
+        />
+        <div className="ml-auto">
+          <LanguageToggle as="dropdown-menu" />
+        </div>
+      </div>
     </header>
   );
 }
 
 function UnauthenticatedFooter() {
   return (
-    <footer className="shrink-0 px-6 py-4 border-t">
-      Unauthenticated Footer
+    <footer className="shrink-0 p-2 border-t">
+      <div className="flex flex-col-reverse items-center gap-2 sm:grid sm:grid-cols-3">
+        <div className="hidden sm:block" />
+        <div className="text-center">All rights reserved.</div>
+        <div className="sm:ml-auto">
+          <LanguageToggle as="footer-link" />
+        </div>
+      </div>
     </footer>
   );
 }
