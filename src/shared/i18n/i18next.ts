@@ -27,8 +27,7 @@ export const i18nextInstance = i18next
     debug: import.meta.env.DEV,
     detection: {
       order: ["localStorage", "cookie", "navigator"],
-      // caches: ["localStorage", "cookie"],
-      lookupCookie: "i18next",
+      caches: ["localStorage"],
       cookieOptions: {
         // should be sent whenever we make a request from the client to the server
         // to inform the server about the current locale
