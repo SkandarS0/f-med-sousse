@@ -1,13 +1,9 @@
-import { RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "../styles/tailwind.css";
-import { I18nextProvider } from "react-i18next";
-import { routerInstance } from "@/shared/config/tanstack-router";
-import { i18nextInstance } from "@/shared/i18n/i18next";
 import reportWebVitals from "@/shared/lib/web-vitals";
-
-const router = routerInstance();
+import { LocaleProvider } from "../providers/locale-provider";
+import { AppRouterProvider } from "../providers/router-provider";
 
 // Render the app
 const rootElement = document.getElementById("app");
@@ -15,9 +11,9 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <I18nextProvider i18n={i18nextInstance}>
-        <RouterProvider router={router} />
-      </I18nextProvider>
+      <LocaleProvider>
+        <AppRouterProvider />
+      </LocaleProvider>
     </StrictMode>,
   );
 }
