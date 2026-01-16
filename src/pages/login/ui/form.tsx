@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import { useAppForm } from "@/shared/lib/form";
 import { FieldGroup } from "@/shared/ui/primitives/field";
 
 export function LoginForm() {
+  const { t } = useTranslation("models");
   const form = useAppForm({
     defaultValues: {
       email: "",
@@ -32,13 +34,24 @@ export function LoginForm() {
     >
       <FieldGroup>
         <form.AppField name="email">
-          {(field) => <field.EmailInput autoComplete="email" />}
+          {(field) => (
+            <field.EmailInput
+              label={t("user.attributes.email")}
+              autoComplete="email"
+              autoFocus
+            />
+          )}
         </form.AppField>
         <form.AppField name={"password"}>
-          {(field) => <field.PasswordInput label="Password" placeholder="f" />}
+          {(field) => (
+            <field.PasswordInput
+              label={t("user.attributes.password")}
+              autoComplete="current-password"
+            />
+          )}
         </form.AppField>
         <form.AppForm>
-          <form.SubmitButton label="Login" />
+          <form.SubmitButton label={t("user.actions.login")} />
         </form.AppForm>
       </FieldGroup>
     </form>

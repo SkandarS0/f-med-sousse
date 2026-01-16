@@ -3,10 +3,12 @@ import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import { zodConfig } from "../config/zod";
 import enMessages from "./en/messages";
+import enModels from "./en/models";
 import enRoutes from "./en/routes";
 import enSharedUi from "./en/shared_ui";
 import enValidation from "./en/validation";
 import frMessages from "./fr/messages";
+import frModels from "./fr/models";
 import frRoutes from "./fr/routes";
 import frSharedUi from "./fr/shared_ui";
 import frValidation from "./fr/validation";
@@ -18,12 +20,14 @@ export const resources = {
     shared_ui: frSharedUi,
     validation: frValidation,
     routes: frRoutes,
+    models: frModels,
   },
   en: {
     messages: enMessages,
     shared_ui: enSharedUi,
     validation: enValidation,
     routes: enRoutes,
+    models: enModels,
   },
 } as const;
 export const i18nextInstance = i18next
