@@ -1,5 +1,6 @@
 import { Outlet } from "@tanstack/react-router";
 import { LanguageToggle } from "@/features/change-language";
+import { AppLogo } from "@/shared/ui/app-logo";
 
 export function UnauthenticatedLayout() {
   return (
@@ -21,11 +22,7 @@ function UnauthenticatedHeader() {
   return (
     <header className="shrink-0 p-3 border-b bg-muted/50">
       <div className="flex items-center">
-        <img
-          src="/official-logo.svg"
-          alt="F-Med Sousse Logo"
-          className="h-16 w-auto"
-        />
+        <AppLogo />
         <div className="ml-auto">
           <LanguageToggle as="dropdown-menu" />
         </div>
