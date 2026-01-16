@@ -1,15 +1,26 @@
+import { cva } from "class-variance-authority";
+
+const logoVariants = cva("h-16 w-auto", {
+  variants: {
+    variant: {
+      dark: "hidden dark:block",
+      light: "block dark:hidden",
+    },
+  },
+});
+
 export function AppLogo() {
   return (
     <>
       <img
         src="/official-logo-dark.svg"
         alt="F-Med Sousse Logo"
-        className="hidden h-16 w-auto dark:block"
+        className={logoVariants({ variant: "dark" })}
       />
       <img
         src="/official-logo-light.svg"
         alt="F-Med Sousse Logo"
-        className="block h-16 w-auto dark:hidden"
+        className={logoVariants({ variant: "light" })}
       />
     </>
   );
