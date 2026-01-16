@@ -14,7 +14,7 @@ export function LoginForm() {
       onChange: z
         .object({
           email: z.email(),
-          password: z.string().min(8).min(1),
+          password: z.string().min(8),
         })
         .required(),
     },
