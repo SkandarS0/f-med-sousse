@@ -11,11 +11,10 @@ export function LoginForm() {
       password: "",
     },
     validators: {
-      onChange: z
-        .object({
-          email: z.email(),
-          password: z.string().min(8),
-        }),
+      onChange: z.object({
+        email: z.email(),
+        password: z.string().min(8),
+      }),
     },
     onSubmit: async ({ value }) => {
       // simulate network request
@@ -32,24 +31,24 @@ export function LoginForm() {
       }}
     >
       <FieldGroup>
-        <form.AppField name="email">
-          {(field) => (
-            <field.EmailInput
-              label={t("user.attributes.email")}
-              autoComplete="email"
-              autoFocus
-            />
-          )}
-        </form.AppField>
-        <form.AppField name={"password"}>
-          {(field) => (
-            <field.PasswordInput
-              label={t("user.attributes.password")}
-              autoComplete="current-password"
-            />
-          )}
-        </form.AppField>
         <form.AppForm>
+          <form.AppField name="email">
+            {(field) => (
+              <field.EmailInput
+                label={t("user.attributes.email")}
+                autoComplete="email"
+                autoFocus
+              />
+            )}
+          </form.AppField>
+          <form.AppField name={"password"}>
+            {(field) => (
+              <field.PasswordInput
+                label={t("user.attributes.password")}
+                autoComplete="current-password"
+              />
+            )}
+          </form.AppField>
           <form.SubmitButton label={t("user.actions.login")} />
         </form.AppForm>
       </FieldGroup>
