@@ -15,8 +15,7 @@ export function LoginForm() {
         .object({
           email: z.email(),
           password: z.string().min(8),
-        })
-        .required(),
+        }),
     },
     onSubmit: async ({ value }) => {
       // simulate network request
