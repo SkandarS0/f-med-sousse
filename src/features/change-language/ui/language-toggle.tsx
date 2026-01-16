@@ -1,6 +1,6 @@
 import { IconLanguage } from "@tabler/icons-react";
+import { cva } from "class-variance-authority";
 import { useTranslation } from "react-i18next";
-import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui/primitives/button";
 import {
   DropdownMenu,
@@ -10,22 +10,43 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/ui/primitives/dropdown-menu";
 import { Separator } from "@/shared/ui/primitives/separator";
+import type { AvailableLanguages } from "../model";
 
 type LanguageToggleProps = {
   as?: "menu-item" | "dropdown-menu" | "footer-link";
 };
+
 export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
+  const { i18n } = useTranslation();
+  const handleLanguageChange = (lang: AvailableLanguages) => {
+    if (lang === i18n.language) {
+      return;
+    }
+    i18n.changeLanguage(lang);
+  };
   const variants = {
     "menu-item": MenuItemLanguageToggle,
     "dropdown-menu": DropdownMenuLanguageToggle,
     "footer-link": FooterLinkLanguageToggle,
   };
   const Component = variants[as];
-  return <Component />;
+  return (
+    <Component
+      language={i18n.language as AvailableLanguages}
+      handleLanguageChange={handleLanguageChange}
+    />
+  );
 }
 
-function DropdownMenuLanguageToggle() {
-  const { i18n } = useTranslation();
+type LanguageToggleComponentProps = {
+  language: AvailableLanguages;
+  handleLanguageChange: (lang: AvailableLanguages) => void;
+};
+
+function DropdownMenuLanguageToggle({
+  language,
+  handleLanguageChange,
+}: LanguageToggleComponentProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -37,8 +58,8 @@ function DropdownMenuLanguageToggle() {
       />
       <DropdownMenuContent withArrow>
         <DropdownMenuRadioGroup
-          defaultValue={i18n.language}
-          onValueChange={(value) => i18n.changeLanguage(value)}
+          value={language}
+          onValueChange={handleLanguageChange}
         >
           <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="fr">Français</DropdownMenuRadioItem>
@@ -48,29 +69,39 @@ function DropdownMenuLanguageToggle() {
   );
 }
 
-function MenuItemLanguageToggle() {
+function MenuItemLanguageToggle({
+  language: _language,
+  handleLanguageChange: _handleLanguageChange,
+}: LanguageToggleComponentProps) {
   return <div>Menu Item Language Toggle</div>;
 }
 
-function FooterLinkLanguageToggle() {
-  const { i18n } = useTranslation();
+const footerLinkClass = cva("transition-colors hover:text-foreground", {
+  variants: {
+    active: {
+      true: "font-semibold text-foreground",
+      false: "text-muted-foreground font-normal",
+    },
+  },
+  defaultVariants: {
+    active: false,
+  },
+});
 
-  const isEnglish = i18n.language === "en";
-  const isFrench = i18n.language === "fr";
-
-  const getLinkClassName = (isActive: boolean) =>
-    cn("transition-colors hover:text-foreground", {
-      "font-semibold text-foreground": isActive,
-      "text-muted-foreground font-normal": !isActive,
-    });
+function FooterLinkLanguageToggle({
+  language,
+  handleLanguageChange,
+}: LanguageToggleComponentProps) {
+  const isEnglish = language === "en";
+  const isFrench = language === "fr";
 
   return (
     <div className="flex items-center gap-2">
       <Button
         variant="link"
         size="sm"
-        onClick={() => i18n.changeLanguage("en")}
-        className={getLinkClassName(isEnglish)}
+        onClick={() => handleLanguageChange("en")}
+        className={footerLinkClass({ active: isEnglish })}
       >
         English
       </Button>
@@ -78,8 +109,8 @@ function FooterLinkLanguageToggle() {
       <Button
         variant="link"
         size="sm"
-        onClick={() => i18n.changeLanguage("fr")}
-        className={getLinkClassName(isFrench)}
+        onClick={() => handleLanguageChange("fr")}
+        className={footerLinkClass({ active: isFrench })}
       >
         Français
       </Button>
