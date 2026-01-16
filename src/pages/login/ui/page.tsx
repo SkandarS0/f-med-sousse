@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   Card,
   CardContent,
@@ -8,12 +9,13 @@ import {
 import { LoginForm } from "./form";
 
 export function LoginPage() {
+  const { t } = useTranslation("pages");
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Login to your account</CardTitle>
+        <CardTitle>{t("login.components.card.title")}</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account
+          {t("login.components.card.description")}
         </CardDescription>
       </CardHeader>
       <CardContent>

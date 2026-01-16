@@ -4,11 +4,13 @@ import { initReactI18next } from "react-i18next";
 import { zodConfig } from "../config/zod";
 import enMessages from "./en/messages";
 import enModels from "./en/models";
+import enPages from "./en/pages";
 import enRoutes from "./en/routes";
 import enSharedUi from "./en/shared_ui";
 import enValidation from "./en/validation";
 import frMessages from "./fr/messages";
 import frModels from "./fr/models";
+import frPages from "./fr/pages";
 import frRoutes from "./fr/routes";
 import frSharedUi from "./fr/shared_ui";
 import frValidation from "./fr/validation";
@@ -21,6 +23,7 @@ export const resources = {
     validation: frValidation,
     routes: frRoutes,
     models: frModels,
+    pages: frPages,
   },
   en: {
     messages: enMessages,
@@ -28,6 +31,7 @@ export const resources = {
     validation: enValidation,
     routes: enRoutes,
     models: enModels,
+    pages: enPages,
   },
 } as const;
 export const i18nextInstance = i18next
