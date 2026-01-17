@@ -11,7 +11,7 @@
         "@tanstack/react-devtools": "^0.9.2",
         "@tanstack/react-form": "^1.27.7",
         "@tanstack/react-form-devtools": "^0.2.11",
-        "@tanstack/react-query": "^5.90.17",
+        "@tanstack/react-query": "^5.90.18",
         "@tanstack/react-query-devtools": "^5.91.2",
         "@tanstack/react-router": "^1.150.0",
         "@tanstack/react-router-devtools": "^1.150.0",
@@ -439,7 +439,7 @@
 
     "@tanstack/pacer-lite": ["@tanstack/pacer-lite@0.1.1", "", {}, "sha512-y/xtNPNt/YeyoVxE/JCx+T7yjEzpezmbb+toK8DDD1P4m7Kzs5YR956+7OKexG3f8aXgC3rLZl7b1V+yNUSy5w=="],
 
-    "@tanstack/query-core": ["@tanstack/query-core@5.90.17", "", {}, "sha512-hDww+RyyYhjhUfoYQ4es6pbgxY7LNiPWxt4l1nJqhByjndxJ7HIjDxTBtfvMr5HwjYavMrd+ids5g4Rfev3lVQ=="],
+    "@tanstack/query-core": ["@tanstack/query-core@5.90.18", "", {}, "sha512-rbGx6bHgPNVzutP7BEr+53UPKohpckqlMAad+To9UxTbeaQ+kC/1SDRj+QzkwbQ7qhLT/1IKp34yS6thda6fzA=="],
 
     "@tanstack/query-devtools": ["@tanstack/query-devtools@5.92.0", "", {}, "sha512-N8D27KH1vEpVacvZgJL27xC6yPFUy0Zkezn5gnB3L3gRCxlDeSuiya7fKge8Y91uMTnC8aSxBQhcK6ocY7alpQ=="],
 
@@ -449,7 +449,7 @@
 
     "@tanstack/react-form-devtools": ["@tanstack/react-form-devtools@0.2.11", "", { "dependencies": { "@tanstack/devtools-utils": "^0.2.3", "@tanstack/form-devtools": "0.2.11" }, "peerDependencies": { "react": "^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-Hv6aZqH2dfamFPWwonA20xKj61xU3omilOYEGdihldOddl+cFLY6P7q66Zqs0p9a9mOQvBS+/i0zBcZjRzvupg=="],
 
-    "@tanstack/react-query": ["@tanstack/react-query@5.90.17", "", { "dependencies": { "@tanstack/query-core": "5.90.17" }, "peerDependencies": { "react": "^18 || ^19" } }, "sha512-PGc2u9KLwohDUSchjW9MZqeDQJfJDON7y4W7REdNBgiFKxQy+Pf7eGjiFWEj5xPqKzAeHYdAb62IWI1a9UJyGQ=="],
+    "@tanstack/react-query": ["@tanstack/react-query@5.90.18", "", { "dependencies": { "@tanstack/query-core": "5.90.18" }, "peerDependencies": { "react": "^18 || ^19" } }, "sha512-KqNZX0C5IFz4639zR1ilnQ288tQdJrMNLtzmlzyJ14xauBkhtLEy3mPU/V4KiHsr41eL1ILZbDP36TB12lYfCQ=="],
 
     "@tanstack/react-query-devtools": ["@tanstack/react-query-devtools@5.91.2", "", { "dependencies": { "@tanstack/query-devtools": "5.92.0" }, "peerDependencies": { "@tanstack/react-query": "^5.90.14", "react": "^18 || ^19" } }, "sha512-ZJ1503ay5fFeEYFUdo7LMNFzZryi6B0Cacrgr2h1JRkvikK1khgIq6Nq2EcblqEdIlgB/r7XDW8f8DQ89RuUgg=="],
 
