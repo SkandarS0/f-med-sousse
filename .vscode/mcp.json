@@ -2,6 +2,9 @@
   "servers": {
     "tanstack": {
       "url": "https://tanstack.com/api/mcp"
-    }
+    },
+    "better-auth": {
+       "url": "https://mcp.chonkie.ai/better-auth/better-auth-builder/mcp"
+   }
   }
 }
