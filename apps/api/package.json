@@ -1,0 +1,15 @@
+{
+  "name": "@f-med-sousse/api",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/openapi": "^1.4.13",
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}
