@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { z } from "zod";
 import { useAppForm } from "@/shared/lib/form";
 import { FieldGroup } from "@/shared/ui/primitives/field";
+import { loginSchema } from "../model/schema";
 
 export function LoginForm() {
   const { t } = useTranslation("models");
@@ -11,10 +11,7 @@ export function LoginForm() {
       password: "",
     },
     validators: {
-      onChange: z.object({
-        email: z.email(),
-        password: z.string().min(8),
-      }),
+      onChange: loginSchema,
     },
     onSubmit: async ({ value }) => {
       // simulate network request
