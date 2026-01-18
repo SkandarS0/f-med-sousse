@@ -6,5 +6,6 @@
     /* Linting */
     "skipLibCheck": true,
     "strict": true,
+    "noUncheckedSideEffectImports": true,
   }
 }

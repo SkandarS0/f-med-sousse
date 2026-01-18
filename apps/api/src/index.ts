@@ -1,5 +1,5 @@
 import { fromTypes, openapi } from "@elysiajs/openapi";
-import Elysia from "elysia";
+import { Elysia } from "elysia";
 
 const app = new Elysia({
   name: "f-med-sousse-api",
