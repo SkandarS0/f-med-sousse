@@ -7,7 +7,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "better-auth": "^1.4.14",
     "i18next": "^25.7.4",
     "zod": "^4.3.5"
   },
