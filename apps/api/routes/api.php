@@ -9,5 +9,5 @@ Route::get('/user', function (Request $request) {
 
 
 Route::get('/', function (Request $request) {
-    return response()->json(['message' => 'Welcome to the API']);
+    return response()->json(['message' => 'Oops! You have reached the API root endpoint. Don\'t tell anyone!']);
 });
