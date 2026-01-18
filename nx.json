@@ -5,8 +5,7 @@
   },
   "targetDefaults": {
     "dev": {
-      "continuous": true,
-      "cache": false
+      "continuous": true
     }
   }
 }
