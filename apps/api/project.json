@@ -26,6 +26,13 @@
           "command": "php artisan migrate",
           "cwd": "{projectRoot}"
         }
+      },
+      "composer":{
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "composer",
+          "cwd": "{projectRoot}"
+        }
       }
     }
 }
