@@ -1,0 +1,30 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+    "namedInputs": {
+      "default": [
+        "{projectRoot}/composer.lock"
+      ]
+    },
+    "targets": {
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "php artisan serve",
+          "cwd": "{projectRoot}"
+        }
+      },
+      "db:migrate": {
+        "cache": true,
+        "executor": "nx:run-commands",
+        "inputs": [
+          "{projectRoot}/composer.lock",
+          "{projectRoot}/database/migrations/*.php"
+        ],
+        "options": {
+          "command": "php artisan migrate",
+          "cwd": "apps/api"
+        }
+      }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "f-med-sousse/api",
+    "description": "An API  made for Faculty of Medicine of Sousse for handling students' choice selecions of optional modules.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Skandar Souissi",
+            "email": "iskandarsouissi.0@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.5",
+        "laravel/framework": "^12.47"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.27"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
