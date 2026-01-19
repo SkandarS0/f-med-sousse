@@ -28,7 +28,7 @@
       "test": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "php ./vendor/bin/pest",
+          "command": "php artisan test",
           "cwd": "{projectRoot}",
           "args":["--colors=always", "--bail", "--compact"]
         }
