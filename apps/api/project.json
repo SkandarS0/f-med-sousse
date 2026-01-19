@@ -27,6 +27,10 @@
       },
       "test": {
         "executor": "nx:run-commands",
+        "cache": true,
+        "inputs": [
+          "testing"
+        ],
         "options": {
           "command": "php artisan test",
           "cwd": "{projectRoot}",
