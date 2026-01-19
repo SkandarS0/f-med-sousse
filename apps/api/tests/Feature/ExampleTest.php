@@ -1,5 +1,7 @@
 <?php
 
-it('returns a successful response', fn ()=> $this->get('/api')->assertSuccessful());
+use function Pest\Laravel\{get};
 
-it('returns the csrf cookie', fn ()=> $this->get('/sanctum/csrf-cookie')->assertCookie('XSRF-TOKEN'));
+it('returns a successful response', fn ()=> get('/api')->assertSuccessful());
+
+it('returns the csrf cookie', fn ()=> get('/sanctum/csrf-cookie')->assertCookie('XSRF-TOKEN'));
