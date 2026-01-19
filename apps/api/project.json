@@ -17,50 +17,50 @@
       "{projectRoot}/phpunit.xml"
     ]
   },
-    "targets": {
-      "dev": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "php artisan serve",
-          "cwd": "{projectRoot}"
-        }
-      },
-      "test": {
-        "executor": "nx:run-commands",
-        "cache": true,
-        "inputs": [
-          "testing"
-        ],
-        "options": {
-          "command": "php artisan test",
-          "cwd": "{projectRoot}",
-          "args":["--colors=always", "--bail", "--compact"]
-        }
-      },
-      "db:migrate": {
-        "cache": true,
-        "executor": "nx:run-commands",
-        "inputs": [
-          "{projectRoot}/database/migrations/*.php"
-        ],
-        "options": {
-          "command": "php artisan migrate",
-          "cwd": "{projectRoot}"
-        }
-      },
-      "composer":{
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "composer",
-          "cwd": "{projectRoot}"
-        }
-      },
-      "artisan":{
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "php artisan",
-          "cwd": "{projectRoot}"
-        }
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "php artisan serve",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "testing"
+      ],
+      "options": {
+        "command": "php artisan test",
+        "cwd": "{projectRoot}",
+        "args":["--colors=always", "--bail", "--compact"]
+      }
+    },
+    "db:migrate": {
+      "cache": true,
+      "executor": "nx:run-commands",
+      "inputs": [
+        "{projectRoot}/database/migrations/*.php"
+      ],
+      "options": {
+        "command": "php artisan migrate",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "composer":{
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "composer",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "artisan":{
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "php artisan",
+        "cwd": "{projectRoot}"
       }
     }
+  }
 }
