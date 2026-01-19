@@ -1,5 +1,5 @@
 import { IconLoader2 } from "@tabler/icons-react";
-import type { ApiErrorResponse } from "@/shared/api";
+import type { ApiErrorResponse } from "@/shared/api/axios";
 import { useFormContext } from "@/shared/lib/form";
 import { Button } from "../primitives/button";
 import { Separator } from "../primitives/separator";
