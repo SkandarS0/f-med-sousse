@@ -1,10 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "@/shared/lib/form";
 import { FieldGroup } from "@/shared/ui/primitives/field";
+import { useAuthLogin } from "../api/use-login";
 import { loginSchema } from "../model/schema";
 
 export function LoginForm() {
   const { t } = useTranslation("models");
+  const loginMutation = useAuthLogin();
   const form = useAppForm({
     defaultValues: {
       email: "",
@@ -13,12 +15,9 @@ export function LoginForm() {
     validators: {
       onChange: loginSchema,
     },
-    onSubmit: async ({ value }) => {
-      // simulate network request
-      console.log("Submitted values:", value);
-      await new Promise((r) => setTimeout(r, 9000));
-    },
+    onSubmit: ({ value }) => loginMutation.mutateAsync(value),
   });
+
   return (
     <form
       noValidate
@@ -46,7 +45,10 @@ export function LoginForm() {
               />
             )}
           </form.AppField>
-          <form.SubmitButton label={t("user.actions.login")} />
+          <form.SubmitButton
+            label={t("user.actions.login")}
+            error={loginMutation.error}
+          />
         </form.AppForm>
       </FieldGroup>
     </form>
