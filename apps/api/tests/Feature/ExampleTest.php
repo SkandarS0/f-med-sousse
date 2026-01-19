@@ -1,7 +1,3 @@
 <?php
 
-it('returns a successful response', function () {
-    $response = $this->get('/api');
-
-    $response->assertStatus(200);
-});
+it('returns a successful response', fn ()=> $this->get('/api')->assertSuccessful());
