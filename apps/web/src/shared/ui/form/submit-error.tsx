@@ -1,10 +1,10 @@
 import type { ApiErrorResponse } from "@/shared/api/axios";
 
 type SubmitErrorProps = {
-  error?: ApiErrorResponse;
+  error?: ApiErrorResponse | null;
 };
 
-export function SubmitError({ error }: SubmitErrorProps) {
+export function SubmitError({ error = null }: SubmitErrorProps) {
   if (!error) return null;
   return (
     <div
