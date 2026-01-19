@@ -2,11 +2,21 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "api",
   "projectType": "application",
-    "namedInputs": {
-      "default": [
-        "{projectRoot}/composer.lock"
-      ]
-    },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/composer.lock",
+      "{projectRoot}/routes/**/*.php",
+      "{projectRoot}/app/**/*.php",
+      "{projectRoot}/database/migrations/*.php",
+      "{projectRoot}/bootstrap/**/*.php"
+    ],
+    "testing": [
+      "default",
+      "{projectRoot}/tests/**/*.php",
+      "{projectRoot}/database/factories/*.php",
+      "{projectRoot}/phpunit.xml"
+    ]
+  },
     "targets": {
       "dev": {
         "executor": "nx:run-commands",
