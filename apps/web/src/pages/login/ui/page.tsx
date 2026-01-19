@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { LoginForm } from "@/features/login/ui/form";
+import { LoginForm } from "@/features/auth/ui/form";
 import {
   Card,
   CardContent,
