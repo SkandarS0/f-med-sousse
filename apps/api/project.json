@@ -41,7 +41,6 @@
         "cache": true,
         "executor": "nx:run-commands",
         "inputs": [
-          "{projectRoot}/composer.lock",
           "{projectRoot}/database/migrations/*.php"
         ],
         "options": {
