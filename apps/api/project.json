@@ -33,6 +33,13 @@
           "command": "composer",
           "cwd": "{projectRoot}"
         }
+      },
+      "artisan":{
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "php artisan",
+          "cwd": "{projectRoot}"
+        }
       }
     }
 }
