@@ -14,7 +14,9 @@
         "laravel/framework": "^12.47"
     },
     "require-dev": {
-        "laravel/pint": "^1.27"
+        "laravel/pint": "^1.27",
+        "mockery/mockery": "^1.6",
+        "pestphp/pest": "^4.3"
     },
     "autoload": {
         "psr-4": {
