@@ -15,6 +15,14 @@
           "cwd": "{projectRoot}"
         }
       },
+      "test": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "php ./vendor/bin/pest",
+          "cwd": "{projectRoot}",
+          "args":["--colors=always", "--bail", "--compact"]
+        }
+      },
       "db:migrate": {
         "cache": true,
         "executor": "nx:run-commands",
