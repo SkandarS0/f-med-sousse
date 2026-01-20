@@ -19,7 +19,7 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+    'allowed_methods' => ['*'],
 
     'allowed_origins' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
         '%s%s',
