@@ -10,5 +10,5 @@ export function useAuthLogin() {
 }
 
 async function loginRequest(data: LoginRequestBody) {
-  return await api.post<LoginResponseBody>("/api/login", data);
+  return await api.post<LoginResponseBody>("/api/auth/login", data);
 }
