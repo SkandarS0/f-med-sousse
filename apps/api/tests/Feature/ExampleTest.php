@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use function Pest\Laravel\{actingAs, getJson, postJson};
 
 it('returns a successful response', fn ()=> getJson('/api')->assertSuccessful());
@@ -29,12 +30,14 @@ test('a user can login with correct credentials with fortify', function () {
         'password' => Hash::make($password),
     ]);
 
-    // getJson('/sanctum/csrf-cookie')->assertCookie('XSRF-TOKEN');
-
+    $csrfResponse = getJson('/sanctum/csrf-cookie');
+    $csrfResponse->assertCookie('XSRF-TOKEN');
+    $csrfToken = $csrfResponse->getCookie('XSRF-TOKEN')->getValue();
     $response = postJson('/api/auth/login', [
         'email' => $user->email,
         'password' => $password,
+    ], [
+        "X-CSRF-TOKEN" => $csrfToken,
     ]);
-
     $response->assertOk();
 });
