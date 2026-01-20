@@ -1,15 +1,16 @@
-import { getI18n } from "react-i18next";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { appConfig } from "../config";
 import type { FileRoutesByTo } from "./routeTree.gen";
 
 type Routes = keyof FileRoutesByTo;
 
-function getRouteTitle(routeName: Routes) {
-  return titleJoiner(getI18n().t(`${routeName}.title`, { ns: "routes" }));
+function useRouteTitle(routeName: Routes) {
+  const { t, i18n } = useTranslation("routes");
+  const title = useMemo(() => {
+    return t(`${routeName}.title`) + ` | ${appConfig.name}`;
+  }, [routeName, t, i18n.language]);
+  return title;
 }
 
-function titleJoiner(title: string) {
-  return [title, appConfig.name].join(" | ");
-}
-
-export { getRouteTitle };
+export { useRouteTitle };
