@@ -1,7 +1,7 @@
-import { z } from "zod";
+import z from "zod";
 import { userSchema } from "@/entities/user/model/schemas";
 
-export const loginSchema = userSchema
+export const loginFormSchema = userSchema
   .pick({
     email: true,
   })
@@ -9,4 +9,4 @@ export const loginSchema = userSchema
     password: z.string(),
   });
 
-export type LoginSchema = z.infer<typeof loginSchema>;
+export type LoginFormSchema = z.infer<typeof loginFormSchema>;

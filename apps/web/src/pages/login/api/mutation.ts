@@ -1,12 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
 import { userQueries } from "@/entities/user/api/query";
 import { api, getCsrfCookie } from "@/shared/api/axios";
-import type { LoginRequestBody, LoginResponseBody } from "../model/login.dto";
-import type { LoginSchema } from "../model/schema";
+import type { LoginFormSchema } from "../model/schema";
+
+type LoginRequestBody = LoginFormSchema;
+
+type LoginResponseBody = { two_factor: boolean };
 
 export function useAuthLogin() {
   return useMutation({
-    mutationFn: async (data: LoginSchema) => await loginRequest(data),
+    mutationFn: async (data: LoginFormSchema) => await loginRequest(data),
     onSuccess(_data, _variables, _onMutateResult, context) {
       context.client.refetchQueries(userQueries.xGet());
     },

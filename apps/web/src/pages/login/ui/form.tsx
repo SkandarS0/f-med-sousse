@@ -4,8 +4,8 @@ import { useAppForm } from "@/shared/lib/form";
 import { Form } from "@/shared/ui/form/wrapper";
 import { Button } from "@/shared/ui/primitives/button";
 import { FieldGroup } from "@/shared/ui/primitives/field";
-import { useAuthLogin } from "../api/use-login";
-import { loginSchema } from "../model/schema";
+import { useAuthLogin } from "../api/mutation";
+import { loginFormSchema } from "../model/schema";
 
 const loginRouteApi = getRouteApi("/(guest)/login");
 
@@ -20,7 +20,7 @@ export function LoginForm() {
       password: "",
     },
     validators: {
-      onChange: loginSchema,
+      onChange: loginFormSchema,
     },
     onSubmit: async ({ value }) => {
       await loginMutation.mutateAsync(value);

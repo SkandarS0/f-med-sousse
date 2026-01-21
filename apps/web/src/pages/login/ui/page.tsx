@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { LoginForm } from "@/features/auth/ui/form";
 import {
   Card,
   CardContent,
@@ -7,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/ui/primitives/card";
+import { LoginForm } from "./form";
 
 export function LoginPage() {
   const { t } = useTranslation("pages");

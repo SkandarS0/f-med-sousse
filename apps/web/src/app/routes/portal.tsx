@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useAuth } from "@/features/auth/lib/use-auth";
+import { useAuthLogout } from "@/entities/user/api/mutation";
 import { useRouteTitle } from "@/shared/routes/title";
 import { LanguageToggle } from "@/shared/ui/language-toggle";
 import { Button } from "@/shared/ui/primitives/button";
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/portal")({
 });
 
 function RouteComponent() {
-  const { logoutMutation } = useAuth();
+  const logoutMutation = useAuthLogout();
   const title = useRouteTitle(Route.to);
   const router = useRouter();
   const handleLogout = async () => {
