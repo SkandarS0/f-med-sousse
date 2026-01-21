@@ -1,6 +1,7 @@
 import { getRouteApi, Link, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "@/shared/lib/form";
+import { Form } from "@/shared/ui/form/wrapper";
 import { Button } from "@/shared/ui/primitives/button";
 import { FieldGroup } from "@/shared/ui/primitives/field";
 import { useAuthLogin } from "../api/use-login";
@@ -30,13 +31,7 @@ export function LoginForm() {
   });
 
   return (
-    <form
-      noValidate
-      onSubmit={(e) => {
-        e.preventDefault();
-        form.handleSubmit();
-      }}
-    >
+    <Form handleSubmit={form.handleSubmit}>
       <FieldGroup>
         <form.AppForm>
           <form.AppField name="email">
@@ -65,6 +60,6 @@ export function LoginForm() {
           <Link to="/portal">Go to portal</Link>
         </Button>
       </FieldGroup>
-    </form>
+    </Form>
   );
 }
