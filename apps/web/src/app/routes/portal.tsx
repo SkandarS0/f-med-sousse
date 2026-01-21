@@ -1,15 +1,16 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useAuthLogout } from "@/features/auth/api/use-logout";
+import { useAuth } from "@/features/auth/lib/use-auth";
+import { LanguageToggle } from "@/features/change-language";
 import { useRouteTitle } from "@/shared/routes/title";
 import { Button } from "@/shared/ui/primitives/button";
 
-export const Route = createFileRoute("/portal/")({
+export const Route = createFileRoute("/portal")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const logoutMutation = useAuthLogout();
+  const { logoutMutation } = useAuth();
   const title = useRouteTitle(Route.to);
   const router = useRouter();
   const handleLogout = async () => {
@@ -28,30 +29,18 @@ function RouteComponent() {
         <Button>
           <Link to="/login">Login</Link>
         </Button>
+        <Button>
+          <Link to="/admin">Admin Portal</Link>
+        </Button>
+        <Button>
+          <Link to="/student">Student Portal</Link>
+        </Button>
         <HelloComponent />
-        <ToggleLanguageComponent />
+        <LanguageToggle as="footer-link" />
       </header>
     </div>
   );
 }
-
-function ToggleLanguageComponent() {
-  const { i18n } = useTranslation();
-  const toggleLanguage = () => {
-    const newLang = i18n.language === "en" ? "fr" : "en";
-    i18n.changeLanguage(newLang);
-  };
-  return (
-    <button
-      type="button"
-      className="mt-4 p-2 bg-blue-500 text-white rounded"
-      onClick={toggleLanguage}
-    >
-      Toggle Language between {i18n.languages}
-    </button>
-  );
-}
-
 function HelloComponent() {
   const { t } = useTranslation();
   return <h1 className="text-3xl font-bold">{t("hello_world")}</h1>;

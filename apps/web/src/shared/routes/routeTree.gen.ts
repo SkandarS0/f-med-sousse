@@ -9,26 +9,35 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './../../app/routes/__root.tsx'
-import { Route as PortalRouteRouteImport } from './../../app/routes/portal/route.tsx'
+import { Route as PortalRouteImport } from './../../app/routes/portal.tsx'
+import { Route as portalRouteRouteImport } from './../../app/routes/(portal)/route.tsx'
 import { Route as authRouteRouteImport } from './../../app/routes/(auth)/route.tsx'
-import { Route as PortalIndexRouteImport } from './../../app/routes/portal/index.tsx'
+import { Route as errorsUnauthorizedRouteImport } from './../../app/routes/(errors)/unauthorized.tsx'
 import { Route as authResetPasswordRouteImport } from './../../app/routes/(auth)/reset-password.tsx'
 import { Route as authLoginRouteImport } from './../../app/routes/(auth)/login.tsx'
 import { Route as authForgetPasswordRouteImport } from './../../app/routes/(auth)/forget-password.tsx'
+import { Route as portalStudentRouteRouteImport } from './../../app/routes/(portal)/student/route.tsx'
+import { Route as portalAdminRouteRouteImport } from './../../app/routes/(portal)/admin/route.tsx'
+import { Route as portalStudentIndexRouteImport } from './../../app/routes/(portal)/student/index.tsx'
+import { Route as portalAdminIndexRouteImport } from './../../app/routes/(portal)/admin/index.tsx'
 
-const PortalRouteRoute = PortalRouteRouteImport.update({
+const PortalRoute = PortalRouteImport.update({
   id: '/portal',
   path: '/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const portalRouteRoute = portalRouteRouteImport.update({
+  id: '/(portal)',
   getParentRoute: () => rootRouteImport,
 } as any)
 const authRouteRoute = authRouteRouteImport.update({
   id: '/(auth)',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PortalIndexRoute = PortalIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => PortalRouteRoute,
+const errorsUnauthorizedRoute = errorsUnauthorizedRouteImport.update({
+  id: '/(errors)/unauthorized',
+  path: '/unauthorized',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const authResetPasswordRoute = authResetPasswordRouteImport.update({
   id: '/reset-password',
@@ -45,52 +54,102 @@ const authForgetPasswordRoute = authForgetPasswordRouteImport.update({
   path: '/forget-password',
   getParentRoute: () => authRouteRoute,
 } as any)
+const portalStudentRouteRoute = portalStudentRouteRouteImport.update({
+  id: '/student',
+  path: '/student',
+  getParentRoute: () => portalRouteRoute,
+} as any)
+const portalAdminRouteRoute = portalAdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => portalRouteRoute,
+} as any)
+const portalStudentIndexRoute = portalStudentIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => portalStudentRouteRoute,
+} as any)
+const portalAdminIndexRoute = portalAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => portalAdminRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
-  '/portal': typeof PortalRouteRouteWithChildren
+  '/portal': typeof PortalRoute
+  '/admin': typeof portalAdminRouteRouteWithChildren
+  '/student': typeof portalStudentRouteRouteWithChildren
   '/forget-password': typeof authForgetPasswordRoute
   '/login': typeof authLoginRoute
   '/reset-password': typeof authResetPasswordRoute
-  '/portal/': typeof PortalIndexRoute
+  '/unauthorized': typeof errorsUnauthorizedRoute
+  '/admin/': typeof portalAdminIndexRoute
+  '/student/': typeof portalStudentIndexRoute
 }
 export interface FileRoutesByTo {
+  '/portal': typeof PortalRoute
   '/forget-password': typeof authForgetPasswordRoute
   '/login': typeof authLoginRoute
   '/reset-password': typeof authResetPasswordRoute
-  '/portal': typeof PortalIndexRoute
+  '/unauthorized': typeof errorsUnauthorizedRoute
+  '/admin': typeof portalAdminIndexRoute
+  '/student': typeof portalStudentIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(auth)': typeof authRouteRouteWithChildren
-  '/portal': typeof PortalRouteRouteWithChildren
+  '/(portal)': typeof portalRouteRouteWithChildren
+  '/portal': typeof PortalRoute
+  '/(portal)/admin': typeof portalAdminRouteRouteWithChildren
+  '/(portal)/student': typeof portalStudentRouteRouteWithChildren
   '/(auth)/forget-password': typeof authForgetPasswordRoute
   '/(auth)/login': typeof authLoginRoute
   '/(auth)/reset-password': typeof authResetPasswordRoute
-  '/portal/': typeof PortalIndexRoute
+  '/(errors)/unauthorized': typeof errorsUnauthorizedRoute
+  '/(portal)/admin/': typeof portalAdminIndexRoute
+  '/(portal)/student/': typeof portalStudentIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/portal'
+    | '/admin'
+    | '/student'
     | '/forget-password'
     | '/login'
     | '/reset-password'
-    | '/portal/'
+    | '/unauthorized'
+    | '/admin/'
+    | '/student/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/forget-password' | '/login' | '/reset-password' | '/portal'
+  to:
+    | '/portal'
+    | '/forget-password'
+    | '/login'
+    | '/reset-password'
+    | '/unauthorized'
+    | '/admin'
+    | '/student'
   id:
     | '__root__'
     | '/(auth)'
+    | '/(portal)'
     | '/portal'
+    | '/(portal)/admin'
+    | '/(portal)/student'
     | '/(auth)/forget-password'
     | '/(auth)/login'
     | '/(auth)/reset-password'
-    | '/portal/'
+    | '/(errors)/unauthorized'
+    | '/(portal)/admin/'
+    | '/(portal)/student/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   authRouteRoute: typeof authRouteRouteWithChildren
-  PortalRouteRoute: typeof PortalRouteRouteWithChildren
+  portalRouteRoute: typeof portalRouteRouteWithChildren
+  PortalRoute: typeof PortalRoute
+  errorsUnauthorizedRoute: typeof errorsUnauthorizedRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,7 +158,14 @@ declare module '@tanstack/react-router' {
       id: '/portal'
       path: '/portal'
       fullPath: '/portal'
-      preLoaderRoute: typeof PortalRouteRouteImport
+      preLoaderRoute: typeof PortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(portal)': {
+      id: '/(portal)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof portalRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(auth)': {
@@ -109,12 +175,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/portal/': {
-      id: '/portal/'
-      path: '/'
-      fullPath: '/portal/'
-      preLoaderRoute: typeof PortalIndexRouteImport
-      parentRoute: typeof PortalRouteRoute
+    '/(errors)/unauthorized': {
+      id: '/(errors)/unauthorized'
+      path: '/unauthorized'
+      fullPath: '/unauthorized'
+      preLoaderRoute: typeof errorsUnauthorizedRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/(auth)/reset-password': {
       id: '/(auth)/reset-password'
@@ -137,6 +203,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authForgetPasswordRouteImport
       parentRoute: typeof authRouteRoute
     }
+    '/(portal)/student': {
+      id: '/(portal)/student'
+      path: '/student'
+      fullPath: '/student'
+      preLoaderRoute: typeof portalStudentRouteRouteImport
+      parentRoute: typeof portalRouteRoute
+    }
+    '/(portal)/admin': {
+      id: '/(portal)/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof portalAdminRouteRouteImport
+      parentRoute: typeof portalRouteRoute
+    }
+    '/(portal)/student/': {
+      id: '/(portal)/student/'
+      path: '/'
+      fullPath: '/student/'
+      preLoaderRoute: typeof portalStudentIndexRouteImport
+      parentRoute: typeof portalStudentRouteRoute
+    }
+    '/(portal)/admin/': {
+      id: '/(portal)/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof portalAdminIndexRouteImport
+      parentRoute: typeof portalAdminRouteRoute
+    }
   }
 }
 
@@ -156,21 +250,47 @@ const authRouteRouteWithChildren = authRouteRoute._addFileChildren(
   authRouteRouteChildren,
 )
 
-interface PortalRouteRouteChildren {
-  PortalIndexRoute: typeof PortalIndexRoute
+interface portalAdminRouteRouteChildren {
+  portalAdminIndexRoute: typeof portalAdminIndexRoute
 }
 
-const PortalRouteRouteChildren: PortalRouteRouteChildren = {
-  PortalIndexRoute: PortalIndexRoute,
+const portalAdminRouteRouteChildren: portalAdminRouteRouteChildren = {
+  portalAdminIndexRoute: portalAdminIndexRoute,
 }
 
-const PortalRouteRouteWithChildren = PortalRouteRoute._addFileChildren(
-  PortalRouteRouteChildren,
+const portalAdminRouteRouteWithChildren =
+  portalAdminRouteRoute._addFileChildren(portalAdminRouteRouteChildren)
+
+interface portalStudentRouteRouteChildren {
+  portalStudentIndexRoute: typeof portalStudentIndexRoute
+}
+
+const portalStudentRouteRouteChildren: portalStudentRouteRouteChildren = {
+  portalStudentIndexRoute: portalStudentIndexRoute,
+}
+
+const portalStudentRouteRouteWithChildren =
+  portalStudentRouteRoute._addFileChildren(portalStudentRouteRouteChildren)
+
+interface portalRouteRouteChildren {
+  portalAdminRouteRoute: typeof portalAdminRouteRouteWithChildren
+  portalStudentRouteRoute: typeof portalStudentRouteRouteWithChildren
+}
+
+const portalRouteRouteChildren: portalRouteRouteChildren = {
+  portalAdminRouteRoute: portalAdminRouteRouteWithChildren,
+  portalStudentRouteRoute: portalStudentRouteRouteWithChildren,
+}
+
+const portalRouteRouteWithChildren = portalRouteRoute._addFileChildren(
+  portalRouteRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
   authRouteRoute: authRouteRouteWithChildren,
-  PortalRouteRoute: PortalRouteRouteWithChildren,
+  portalRouteRoute: portalRouteRouteWithChildren,
+  PortalRoute: PortalRoute,
+  errorsUnauthorizedRoute: errorsUnauthorizedRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

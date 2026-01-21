@@ -11,4 +11,13 @@ export default {
   "/portal": {
     title: "Portail",
   },
+  "/admin": {
+    title: "Portail administrateur",
+  },
+  "/student": {
+    title: "Portail étudiant",
+  },
+  "/unauthorized": {
+    title: "Non autorisé",
+  },
 };
