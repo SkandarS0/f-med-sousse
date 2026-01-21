@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import z from "zod";
-import { LoginPage } from "@/pages/login";
+import { LoginPage } from "@/pages";
 import { useRouteTitle } from "@/shared/routes/title";
 
 export const Route = createFileRoute("/(guest)/login")({
