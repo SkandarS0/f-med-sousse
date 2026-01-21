@@ -2,10 +2,10 @@ import { Outlet } from "@tanstack/react-router";
 import { LanguageToggle } from "@/features/change-language";
 import { AppLogo } from "@/shared/ui/app-logo";
 
-export function UnauthenticatedLayout() {
+export function GuestLayout() {
   return (
     <div className="flex flex-col h-dvh">
-      <UnauthenticatedHeader />
+      <GuestHeader />
       <main className="flex-1 min-h-0 overflow-y-auto">
         <div className="flex min-h-full w-full max-w-sm items-center mx-auto p-6">
           <div className="w-full">
@@ -13,12 +13,12 @@ export function UnauthenticatedLayout() {
           </div>
         </div>
       </main>
-      <UnauthenticatedFooter />
+      <GuestFooter />
     </div>
   );
 }
 
-function UnauthenticatedHeader() {
+function GuestHeader() {
   return (
     <header className="shrink-0 p-3 border-b bg-muted/50">
       <div className="flex items-center">
@@ -31,7 +31,7 @@ function UnauthenticatedHeader() {
   );
 }
 
-function UnauthenticatedFooter() {
+function GuestFooter() {
   return (
     <footer className="shrink-0 p-2 border-t">
       <div className="flex flex-col-reverse items-center gap-2 sm:grid sm:grid-cols-3">

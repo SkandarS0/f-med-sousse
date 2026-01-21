@@ -11,11 +11,11 @@
 import { Route as rootRouteImport } from './../../app/routes/__root.tsx'
 import { Route as PortalRouteImport } from './../../app/routes/portal.tsx'
 import { Route as portalRouteRouteImport } from './../../app/routes/(portal)/route.tsx'
-import { Route as authRouteRouteImport } from './../../app/routes/(auth)/route.tsx'
+import { Route as guestRouteRouteImport } from './../../app/routes/(guest)/route.tsx'
+import { Route as guestResetPasswordRouteImport } from './../../app/routes/(guest)/reset-password.tsx'
+import { Route as guestLoginRouteImport } from './../../app/routes/(guest)/login.tsx'
+import { Route as guestForgetPasswordRouteImport } from './../../app/routes/(guest)/forget-password.tsx'
 import { Route as errorsUnauthorizedRouteImport } from './../../app/routes/(errors)/unauthorized.tsx'
-import { Route as authResetPasswordRouteImport } from './../../app/routes/(auth)/reset-password.tsx'
-import { Route as authLoginRouteImport } from './../../app/routes/(auth)/login.tsx'
-import { Route as authForgetPasswordRouteImport } from './../../app/routes/(auth)/forget-password.tsx'
 import { Route as portalStudentRouteRouteImport } from './../../app/routes/(portal)/student/route.tsx'
 import { Route as portalAdminRouteRouteImport } from './../../app/routes/(portal)/admin/route.tsx'
 import { Route as portalStudentIndexRouteImport } from './../../app/routes/(portal)/student/index.tsx'
@@ -30,29 +30,29 @@ const portalRouteRoute = portalRouteRouteImport.update({
   id: '/(portal)',
   getParentRoute: () => rootRouteImport,
 } as any)
-const authRouteRoute = authRouteRouteImport.update({
-  id: '/(auth)',
+const guestRouteRoute = guestRouteRouteImport.update({
+  id: '/(guest)',
   getParentRoute: () => rootRouteImport,
+} as any)
+const guestResetPasswordRoute = guestResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => guestRouteRoute,
+} as any)
+const guestLoginRoute = guestLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => guestRouteRoute,
+} as any)
+const guestForgetPasswordRoute = guestForgetPasswordRouteImport.update({
+  id: '/forget-password',
+  path: '/forget-password',
+  getParentRoute: () => guestRouteRoute,
 } as any)
 const errorsUnauthorizedRoute = errorsUnauthorizedRouteImport.update({
   id: '/(errors)/unauthorized',
   path: '/unauthorized',
   getParentRoute: () => rootRouteImport,
-} as any)
-const authResetPasswordRoute = authResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
-  getParentRoute: () => authRouteRoute,
-} as any)
-const authLoginRoute = authLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => authRouteRoute,
-} as any)
-const authForgetPasswordRoute = authForgetPasswordRouteImport.update({
-  id: '/forget-password',
-  path: '/forget-password',
-  getParentRoute: () => authRouteRoute,
 } as any)
 const portalStudentRouteRoute = portalStudentRouteRouteImport.update({
   id: '/student',
@@ -79,33 +79,33 @@ export interface FileRoutesByFullPath {
   '/portal': typeof PortalRoute
   '/admin': typeof portalAdminRouteRouteWithChildren
   '/student': typeof portalStudentRouteRouteWithChildren
-  '/forget-password': typeof authForgetPasswordRoute
-  '/login': typeof authLoginRoute
-  '/reset-password': typeof authResetPasswordRoute
   '/unauthorized': typeof errorsUnauthorizedRoute
+  '/forget-password': typeof guestForgetPasswordRoute
+  '/login': typeof guestLoginRoute
+  '/reset-password': typeof guestResetPasswordRoute
   '/admin/': typeof portalAdminIndexRoute
   '/student/': typeof portalStudentIndexRoute
 }
 export interface FileRoutesByTo {
   '/portal': typeof PortalRoute
-  '/forget-password': typeof authForgetPasswordRoute
-  '/login': typeof authLoginRoute
-  '/reset-password': typeof authResetPasswordRoute
   '/unauthorized': typeof errorsUnauthorizedRoute
+  '/forget-password': typeof guestForgetPasswordRoute
+  '/login': typeof guestLoginRoute
+  '/reset-password': typeof guestResetPasswordRoute
   '/admin': typeof portalAdminIndexRoute
   '/student': typeof portalStudentIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/(auth)': typeof authRouteRouteWithChildren
+  '/(guest)': typeof guestRouteRouteWithChildren
   '/(portal)': typeof portalRouteRouteWithChildren
   '/portal': typeof PortalRoute
   '/(portal)/admin': typeof portalAdminRouteRouteWithChildren
   '/(portal)/student': typeof portalStudentRouteRouteWithChildren
-  '/(auth)/forget-password': typeof authForgetPasswordRoute
-  '/(auth)/login': typeof authLoginRoute
-  '/(auth)/reset-password': typeof authResetPasswordRoute
   '/(errors)/unauthorized': typeof errorsUnauthorizedRoute
+  '/(guest)/forget-password': typeof guestForgetPasswordRoute
+  '/(guest)/login': typeof guestLoginRoute
+  '/(guest)/reset-password': typeof guestResetPasswordRoute
   '/(portal)/admin/': typeof portalAdminIndexRoute
   '/(portal)/student/': typeof portalStudentIndexRoute
 }
@@ -115,38 +115,38 @@ export interface FileRouteTypes {
     | '/portal'
     | '/admin'
     | '/student'
+    | '/unauthorized'
     | '/forget-password'
     | '/login'
     | '/reset-password'
-    | '/unauthorized'
     | '/admin/'
     | '/student/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/portal'
+    | '/unauthorized'
     | '/forget-password'
     | '/login'
     | '/reset-password'
-    | '/unauthorized'
     | '/admin'
     | '/student'
   id:
     | '__root__'
-    | '/(auth)'
+    | '/(guest)'
     | '/(portal)'
     | '/portal'
     | '/(portal)/admin'
     | '/(portal)/student'
-    | '/(auth)/forget-password'
-    | '/(auth)/login'
-    | '/(auth)/reset-password'
     | '/(errors)/unauthorized'
+    | '/(guest)/forget-password'
+    | '/(guest)/login'
+    | '/(guest)/reset-password'
     | '/(portal)/admin/'
     | '/(portal)/student/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  authRouteRoute: typeof authRouteRouteWithChildren
+  guestRouteRoute: typeof guestRouteRouteWithChildren
   portalRouteRoute: typeof portalRouteRouteWithChildren
   PortalRoute: typeof PortalRoute
   errorsUnauthorizedRoute: typeof errorsUnauthorizedRoute
@@ -168,12 +168,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof portalRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(auth)': {
-      id: '/(auth)'
+    '/(guest)': {
+      id: '/(guest)'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof authRouteRouteImport
+      preLoaderRoute: typeof guestRouteRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/(guest)/reset-password': {
+      id: '/(guest)/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof guestResetPasswordRouteImport
+      parentRoute: typeof guestRouteRoute
+    }
+    '/(guest)/login': {
+      id: '/(guest)/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof guestLoginRouteImport
+      parentRoute: typeof guestRouteRoute
+    }
+    '/(guest)/forget-password': {
+      id: '/(guest)/forget-password'
+      path: '/forget-password'
+      fullPath: '/forget-password'
+      preLoaderRoute: typeof guestForgetPasswordRouteImport
+      parentRoute: typeof guestRouteRoute
     }
     '/(errors)/unauthorized': {
       id: '/(errors)/unauthorized'
@@ -181,27 +202,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/unauthorized'
       preLoaderRoute: typeof errorsUnauthorizedRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/(auth)/reset-password': {
-      id: '/(auth)/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof authResetPasswordRouteImport
-      parentRoute: typeof authRouteRoute
-    }
-    '/(auth)/login': {
-      id: '/(auth)/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof authLoginRouteImport
-      parentRoute: typeof authRouteRoute
-    }
-    '/(auth)/forget-password': {
-      id: '/(auth)/forget-password'
-      path: '/forget-password'
-      fullPath: '/forget-password'
-      preLoaderRoute: typeof authForgetPasswordRouteImport
-      parentRoute: typeof authRouteRoute
     }
     '/(portal)/student': {
       id: '/(portal)/student'
@@ -234,20 +234,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface authRouteRouteChildren {
-  authForgetPasswordRoute: typeof authForgetPasswordRoute
-  authLoginRoute: typeof authLoginRoute
-  authResetPasswordRoute: typeof authResetPasswordRoute
+interface guestRouteRouteChildren {
+  guestForgetPasswordRoute: typeof guestForgetPasswordRoute
+  guestLoginRoute: typeof guestLoginRoute
+  guestResetPasswordRoute: typeof guestResetPasswordRoute
 }
 
-const authRouteRouteChildren: authRouteRouteChildren = {
-  authForgetPasswordRoute: authForgetPasswordRoute,
-  authLoginRoute: authLoginRoute,
-  authResetPasswordRoute: authResetPasswordRoute,
+const guestRouteRouteChildren: guestRouteRouteChildren = {
+  guestForgetPasswordRoute: guestForgetPasswordRoute,
+  guestLoginRoute: guestLoginRoute,
+  guestResetPasswordRoute: guestResetPasswordRoute,
 }
 
-const authRouteRouteWithChildren = authRouteRoute._addFileChildren(
-  authRouteRouteChildren,
+const guestRouteRouteWithChildren = guestRouteRoute._addFileChildren(
+  guestRouteRouteChildren,
 )
 
 interface portalAdminRouteRouteChildren {
@@ -287,7 +287,7 @@ const portalRouteRouteWithChildren = portalRouteRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  authRouteRoute: authRouteRouteWithChildren,
+  guestRouteRoute: guestRouteRouteWithChildren,
   portalRouteRoute: portalRouteRouteWithChildren,
   PortalRoute: PortalRoute,
   errorsUnauthorizedRoute: errorsUnauthorizedRoute,

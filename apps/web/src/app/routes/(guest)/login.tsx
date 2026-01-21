@@ -3,7 +3,7 @@ import z from "zod";
 import { LoginPage } from "@/pages/login";
 import { useRouteTitle } from "@/shared/routes/title";
 
-export const Route = createFileRoute("/(auth)/login")({
+export const Route = createFileRoute("/(guest)/login")({
   validateSearch: z.object({
     redirectTo: z.string().optional(),
   }),
