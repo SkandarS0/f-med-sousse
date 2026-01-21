@@ -9,7 +9,7 @@ export default {
     actions: {
       login: "Log in",
       logout: "Log out",
-      send_reset_password_instructions: "Send link",
+      send_link: "Send link",
     },
   },
 };
