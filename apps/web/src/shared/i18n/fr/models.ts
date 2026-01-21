@@ -9,6 +9,7 @@ export default {
     actions: {
       login: "Se connecter",
       logout: "Se déconnecter",
+      send_reset_password_instructions: "Envoyer le lien",
     },
   },
 };

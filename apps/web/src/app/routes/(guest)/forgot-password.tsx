@@ -1,20 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { ForgotPasswordPage } from "@/pages";
+import { useRouteTitle } from "@/shared/routes/title";
 
 export const Route = createFileRoute("/(guest)/forgot-password")({
-  component: RouteComponent,
-
+  component: function RouteComponent() {
+    const title = useRouteTitle("/forgot-password");
+    return (
+      <>
+        <title>{title}</title>
+        <ForgotPasswordPage />
+      </>
+    );
+  },
   validateSearch: z.object({
     email: z.email().optional(),
   }),
 });
-
-function RouteComponent() {
-  const search = Route.useSearch();
-  return (
-    <div>
-      Hello "/forget-password"!
-      <span>Your email is {search.email ?? "not provided"}</span>
-    </div>
-  );
-}

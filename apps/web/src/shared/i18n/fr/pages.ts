@@ -8,4 +8,13 @@ export default {
       },
     },
   },
+  "forgot-password": {
+    components: {
+      card: {
+        title: "Réinitialisez votre mot de passe",
+        description:
+          "Entrez votre email pour recevoir les instructions de réinitialisation du mot de passe.",
+      },
+    },
+  },
 };

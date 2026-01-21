@@ -7,4 +7,12 @@ export default {
       },
     },
   },
+  "forgot-password": {
+    components: {
+      card: {
+        title: "Reset your password",
+        description: "Enter your email to receive password reset instructions.",
+      },
+    },
+  },
 };
