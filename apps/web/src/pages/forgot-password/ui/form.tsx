@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "@/shared/lib/form";
+import { Form } from "@/shared/ui/form/wrapper";
 import { FieldGroup } from "@/shared/ui/primitives/field";
 import { forgotPasswordSchema } from "../model/schema";
 
@@ -12,13 +13,7 @@ export function ForgotPasswordForm() {
     },
   });
   return (
-    <form
-      noValidate
-      onSubmit={(e) => {
-        e.preventDefault();
-        form.handleSubmit();
-      }}
-    >
+    <Form handleSubmit={form.handleSubmit}>
       <FieldGroup>
         <form.AppForm>
           <form.AppField name="email">
@@ -37,6 +32,6 @@ export function ForgotPasswordForm() {
           />
         </form.AppForm>
       </FieldGroup>
-    </form>
+    </Form>
   );
 }
