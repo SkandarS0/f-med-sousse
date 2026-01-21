@@ -34,6 +34,7 @@ export function ForgotPasswordForm() {
           <form.SubmitButton
             label={t("user.actions.send_link")}
             error={forgotPasswordMutation.error}
+            success={forgotPasswordMutation.data?.message}
           />
         </form.AppForm>
       </FieldGroup>
