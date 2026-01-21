@@ -1,6 +1,8 @@
 import { IconLoader2 } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 import type { ApiErrorResponse } from "@/shared/api/axios";
 import { useFormContext } from "@/shared/lib/form";
+import { FadeMessage } from "@/shared/ui/fade-message";
 import { Button } from "../primitives/button";
 import { Separator } from "../primitives/separator";
 
@@ -9,35 +11,45 @@ type SubmitButtonProps = {
   disabled?: boolean;
   error?: ApiErrorResponse | null;
   success?: string | null;
+  messageTimeout?: number;
 };
 
 export function SubmitButton({
   error = null,
   success = null,
+  messageTimeout = 5000,
   ...props
 }: SubmitButtonProps) {
   const form = useFormContext();
+  const [errorState, setErrorState] = useState<ApiErrorResponse | null>(error);
+  const [successState, setSuccessState] = useState<string | null>(success);
+
+  useEffect(() => {
+    setErrorState(error ?? null);
+  }, [error]);
+
+  useEffect(() => {
+    setSuccessState(success ?? null);
+  }, [success]);
 
   return (
     <>
       <Separator className="mt-2" />
-      {error && (
-        <div
-          role="alert"
-          aria-live="assertive"
-          className="text-sm text-center text-destructive"
-        >
-          {error.message}
-        </div>
+      {errorState && (
+        <FadeMessage
+          message={errorState.message}
+          timeout={messageTimeout}
+          className="text-destructive"
+          onTimeout={() => setErrorState(null)}
+        />
       )}
-      {success && (
-        <div
-          role="alert"
-          aria-live="assertive"
-          className="text-sm text-center text-success"
-        >
-          {success}
-        </div>
+      {successState && (
+        <FadeMessage
+          message={successState}
+          timeout={messageTimeout}
+          className="text-success"
+          onTimeout={() => setSuccessState(null)}
+        />
       )}
       <form.Subscribe>
         {(state) => (
