@@ -1,16 +1,18 @@
 import { createContext, useContext } from "react";
-import type { User } from "@/entities/user/model/schemas";
+import type { User, UserType } from "@/entities/user/model/schemas";
 import { useAuthLogin } from "../api/use-login";
 import { useAuthLogout } from "../api/use-logout";
 
 export type AuthContextType = {
   user: User | undefined;
   isAuthenticated: boolean;
+  userOfType: (userType: UserType) => boolean;
 };
 
 export const AuthContext = createContext<AuthContextType>({
   user: undefined,
   isAuthenticated: false,
+  userOfType: () => false,
 });
 
 export function useAuth() {

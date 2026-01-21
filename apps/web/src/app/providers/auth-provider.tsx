@@ -21,7 +21,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isAuthenticated,
+        userOfType: (userType) => user?.type === userType,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
