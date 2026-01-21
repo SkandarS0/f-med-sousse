@@ -2,8 +2,8 @@ export default {
   "/login": {
     title: "Login",
   },
-  "/forget-password": {
-    title: "Forget Password",
+  "/forgot-password": {
+    title: "Forgot Password",
   },
   "/reset-password": {
     title: "Reset Password",

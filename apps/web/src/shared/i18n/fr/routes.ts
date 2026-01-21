@@ -2,7 +2,7 @@ export default {
   "/login": {
     title: "Connexion",
   },
-  "/forget-password": {
+  "/forgot-password": {
     title: "Mot de passe oublié",
   },
   "/reset-password": {

@@ -14,7 +14,7 @@ import { Route as portalRouteRouteImport } from './../../app/routes/(portal)/rou
 import { Route as guestRouteRouteImport } from './../../app/routes/(guest)/route.tsx'
 import { Route as guestResetPasswordRouteImport } from './../../app/routes/(guest)/reset-password.tsx'
 import { Route as guestLoginRouteImport } from './../../app/routes/(guest)/login.tsx'
-import { Route as guestForgetPasswordRouteImport } from './../../app/routes/(guest)/forget-password.tsx'
+import { Route as guestForgotPasswordRouteImport } from './../../app/routes/(guest)/forgot-password.tsx'
 import { Route as errorsUnauthorizedRouteImport } from './../../app/routes/(errors)/unauthorized.tsx'
 import { Route as portalStudentRouteRouteImport } from './../../app/routes/(portal)/student/route.tsx'
 import { Route as portalAdminRouteRouteImport } from './../../app/routes/(portal)/admin/route.tsx'
@@ -44,9 +44,9 @@ const guestLoginRoute = guestLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => guestRouteRoute,
 } as any)
-const guestForgetPasswordRoute = guestForgetPasswordRouteImport.update({
-  id: '/forget-password',
-  path: '/forget-password',
+const guestForgotPasswordRoute = guestForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
   getParentRoute: () => guestRouteRoute,
 } as any)
 const errorsUnauthorizedRoute = errorsUnauthorizedRouteImport.update({
@@ -80,7 +80,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof portalAdminRouteRouteWithChildren
   '/student': typeof portalStudentRouteRouteWithChildren
   '/unauthorized': typeof errorsUnauthorizedRoute
-  '/forget-password': typeof guestForgetPasswordRoute
+  '/forgot-password': typeof guestForgotPasswordRoute
   '/login': typeof guestLoginRoute
   '/reset-password': typeof guestResetPasswordRoute
   '/admin/': typeof portalAdminIndexRoute
@@ -89,7 +89,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/portal': typeof PortalRoute
   '/unauthorized': typeof errorsUnauthorizedRoute
-  '/forget-password': typeof guestForgetPasswordRoute
+  '/forgot-password': typeof guestForgotPasswordRoute
   '/login': typeof guestLoginRoute
   '/reset-password': typeof guestResetPasswordRoute
   '/admin': typeof portalAdminIndexRoute
@@ -103,7 +103,7 @@ export interface FileRoutesById {
   '/(portal)/admin': typeof portalAdminRouteRouteWithChildren
   '/(portal)/student': typeof portalStudentRouteRouteWithChildren
   '/(errors)/unauthorized': typeof errorsUnauthorizedRoute
-  '/(guest)/forget-password': typeof guestForgetPasswordRoute
+  '/(guest)/forgot-password': typeof guestForgotPasswordRoute
   '/(guest)/login': typeof guestLoginRoute
   '/(guest)/reset-password': typeof guestResetPasswordRoute
   '/(portal)/admin/': typeof portalAdminIndexRoute
@@ -116,7 +116,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/student'
     | '/unauthorized'
-    | '/forget-password'
+    | '/forgot-password'
     | '/login'
     | '/reset-password'
     | '/admin/'
@@ -125,7 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/portal'
     | '/unauthorized'
-    | '/forget-password'
+    | '/forgot-password'
     | '/login'
     | '/reset-password'
     | '/admin'
@@ -138,7 +138,7 @@ export interface FileRouteTypes {
     | '/(portal)/admin'
     | '/(portal)/student'
     | '/(errors)/unauthorized'
-    | '/(guest)/forget-password'
+    | '/(guest)/forgot-password'
     | '/(guest)/login'
     | '/(guest)/reset-password'
     | '/(portal)/admin/'
@@ -189,11 +189,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof guestLoginRouteImport
       parentRoute: typeof guestRouteRoute
     }
-    '/(guest)/forget-password': {
-      id: '/(guest)/forget-password'
-      path: '/forget-password'
-      fullPath: '/forget-password'
-      preLoaderRoute: typeof guestForgetPasswordRouteImport
+    '/(guest)/forgot-password': {
+      id: '/(guest)/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof guestForgotPasswordRouteImport
       parentRoute: typeof guestRouteRoute
     }
     '/(errors)/unauthorized': {
@@ -235,13 +235,13 @@ declare module '@tanstack/react-router' {
 }
 
 interface guestRouteRouteChildren {
-  guestForgetPasswordRoute: typeof guestForgetPasswordRoute
+  guestForgotPasswordRoute: typeof guestForgotPasswordRoute
   guestLoginRoute: typeof guestLoginRoute
   guestResetPasswordRoute: typeof guestResetPasswordRoute
 }
 
 const guestRouteRouteChildren: guestRouteRouteChildren = {
-  guestForgetPasswordRoute: guestForgetPasswordRoute,
+  guestForgotPasswordRoute: guestForgotPasswordRoute,
   guestLoginRoute: guestLoginRoute,
   guestResetPasswordRoute: guestResetPasswordRoute,
 }
