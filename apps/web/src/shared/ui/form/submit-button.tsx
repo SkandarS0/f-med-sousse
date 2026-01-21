@@ -8,9 +8,14 @@ type SubmitButtonProps = {
   label: string;
   disabled?: boolean;
   error?: ApiErrorResponse | null;
+  success?: string | null;
 };
 
-export function SubmitButton({ error = null, ...props }: SubmitButtonProps) {
+export function SubmitButton({
+  error = null,
+  success = null,
+  ...props
+}: SubmitButtonProps) {
   const form = useFormContext();
 
   return (
@@ -23,6 +28,15 @@ export function SubmitButton({ error = null, ...props }: SubmitButtonProps) {
           className="text-sm text-center text-destructive"
         >
           {error.message}
+        </div>
+      )}
+      {success && (
+        <div
+          role="alert"
+          aria-live="assertive"
+          className="text-sm text-center text-success"
+        >
+          {success}
         </div>
       )}
       <form.Subscribe>
