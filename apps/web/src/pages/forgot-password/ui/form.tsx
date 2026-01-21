@@ -2,14 +2,14 @@ import { useTranslation } from "react-i18next";
 import { useAppForm } from "@/shared/lib/form";
 import { Form } from "@/shared/ui/form/wrapper";
 import { FieldGroup } from "@/shared/ui/primitives/field";
-import { forgotPasswordSchema } from "../model/schema";
+import { forgotPasswordFormSchema } from "../model/schema";
 
 export function ForgotPasswordForm() {
   const { t } = useTranslation("models");
   const form = useAppForm({
     defaultValues: { email: "" },
     validators: {
-      onChange: forgotPasswordSchema,
+      onChange: forgotPasswordFormSchema,
     },
   });
   return (
