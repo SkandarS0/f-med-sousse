@@ -1,7 +1,10 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "../styles/tailwind.css";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/shared/api/query-client";
 import reportWebVitals from "@/shared/lib/web-vitals";
+import { AuthProvider } from "../providers/auth-provider";
 import { LocaleProvider } from "../providers/locale-provider";
 import { AppRouterProvider } from "../providers/router-provider";
 import { ThemeProvider } from "../providers/theme-provider";
@@ -14,7 +17,11 @@ if (rootElement && !rootElement.innerHTML) {
     <StrictMode>
       <LocaleProvider>
         <ThemeProvider>
-          <AppRouterProvider />
+          <QueryClientProvider client={queryClient}>
+            <AuthProvider>
+              <AppRouterProvider />
+            </AuthProvider>
+          </QueryClientProvider>
         </ThemeProvider>
       </LocaleProvider>
     </StrictMode>,

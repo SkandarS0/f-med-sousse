@@ -5,9 +5,11 @@ import {
   Outlet,
 } from "@tanstack/react-router";
 import { TanstackDevToolsIntegration } from "@/app/ui/tanstack-devtools";
+import type { AuthContextType } from "@/features/auth/lib/use-auth";
 
 interface AppRouterContext {
   queryClient: QueryClient;
+  auth: AuthContextType;
 }
 
 export const Route = createRootRouteWithContext<AppRouterContext>()({

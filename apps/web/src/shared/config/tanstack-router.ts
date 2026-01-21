@@ -1,18 +1,21 @@
 import { createRouter } from "@tanstack/react-router";
 import { setupRouterSsrQueryIntegration } from "@tanstack/react-router-ssr-query";
+import { useAuth } from "@/features/auth/lib/use-auth";
 import { queryClient } from "@/shared/api/query-client.ts";
 import { routeTree } from "@/shared/routes/routeTree.gen.ts";
 
-export function routerInstance() {
+export function useRouterInstance() {
+  const auth = useAuth();
   const router = createRouter({
     routeTree,
-    context: { queryClient },
+    context: { queryClient, auth },
     scrollRestoration: true,
   });
 
   setupRouterSsrQueryIntegration({
     router,
     queryClient,
+    wrapQueryClient: false,
   });
 
   return router;
