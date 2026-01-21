@@ -34,6 +34,11 @@ export const resources = {
     pages: enPages,
   },
 } as const;
+
+const supportedLngs = ["fr", "en"] as const;
+
+export type SupportedLng = (typeof supportedLngs)[number];
+
 export const i18nextInstance = i18next
   .createInstance({
     debug: import.meta.env.DEV,
@@ -48,7 +53,7 @@ export const i18nextInstance = i18next
       },
     },
     fallbackLng: "fr",
-    supportedLngs: ["fr", "en"],
+    supportedLngs: supportedLngs,
     interpolation: {
       escapeValue: false,
     },
