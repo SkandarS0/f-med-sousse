@@ -28,6 +28,32 @@ export const zodConfig = (i18n: i18n) =>
               ns: "validation",
             }),
           };
+        } else if (issue.format === "regex") {
+          if (issue.pattern === /[A-Z]/.toString()) {
+            return {
+              message: i18n.t("invalidFormat.regex.uppercase", {
+                ns: "validation",
+              }),
+            };
+          } else if (issue.pattern === /[a-z]/.toString()) {
+            return {
+              message: i18n.t("invalidFormat.regex.lowercase", {
+                ns: "validation",
+              }),
+            };
+          } else if (issue.pattern === /[0-9]/.toString()) {
+            return {
+              message: i18n.t("invalidFormat.regex.number", {
+                ns: "validation",
+              }),
+            };
+          } else if (issue.pattern === /[\W_]/.toString()) {
+            return {
+              message: i18n.t("invalidFormat.regex.special", {
+                ns: "validation",
+              }),
+            };
+          }
         }
       }
     },

@@ -10,9 +10,24 @@ export default {
   "forgot-password": {
     components: {
       card: {
-        title: "Reset your password",
-        description: "Enter your email to receive password reset instructions.",
+        title: "Recover your password",
+        description: "Enter your email and we’ll send you a reset link.",
       },
+    },
+  },
+  "reset-password": {
+    components: {
+      card: {
+        title: "Choose a new password",
+        description: "Enter and confirm your new password.",
+      },
+    },
+    error: {
+      h1: "Invalid Password Reset Link",
+      p1: "This reset link is invalid or has expired.",
+      p2: "Please request a new one.",
+      requestNewLink: "Request a new reset link",
+      backToSignIn: "Return to sign in",
     },
   },
 };
