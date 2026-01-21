@@ -1,6 +1,6 @@
 {
     "name": "f-med-sousse/api",
-    "description": "An API  made for Faculty of Medicine of Sousse for handling students' choice selecions of optional modules.",
+    "description": "An API made for Faculty of Medicine of Sousse for handling students' choice selections of optional modules.",
     "type": "project",
     "license": "MIT",
     "authors": [
