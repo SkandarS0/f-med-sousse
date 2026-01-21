@@ -6,7 +6,7 @@ import { FieldGroup } from "@/shared/ui/primitives/field";
 import { useAuthLogin } from "../api/use-login";
 import { loginSchema } from "../model/schema";
 
-const loginRouteApi = getRouteApi("/(auth)/login");
+const loginRouteApi = getRouteApi("/(guest)/login");
 
 export function LoginForm() {
   const { t } = useTranslation("models");
