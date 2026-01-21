@@ -9,6 +9,7 @@ export const getUserQueryOptions = queryOptions({
     return response.data;
   },
   retry: false,
+  staleTime: 5 * 60 * 1000, // 5 minutes
   throwOnError: false,
 });
 
