@@ -1,6 +1,6 @@
 import { IconLoader } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
-import { getUserQueryOptions } from "@/features/auth/api/get-user";
+import { getUserQueryOptions } from "@/entities/user/api/query";
 import { AuthContext } from "@/features/auth/lib/use-auth";
 
 type AuthProviderProps = {

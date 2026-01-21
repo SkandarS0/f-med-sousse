@@ -1,6 +1,6 @@
 import { queryOptions } from "@tanstack/react-query";
 import { api } from "@/shared/api/axios";
-import type { GetUserResponseBody } from "../model/user.dto";
+import type { GetUserResponseBody } from "./dto";
 
 export const getUserQueryOptions = queryOptions({
   queryKey: ["user"],
