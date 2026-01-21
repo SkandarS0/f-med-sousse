@@ -7,7 +7,7 @@ export function useAuthLogin() {
   return useMutation({
     mutationFn: async (data: LoginSchema) => await loginRequest(data),
     onSuccess(_data, _variables, _onMutateResult, context) {
-      context.client.removeQueries({ queryKey: ["user"] });
+      context.client.refetchQueries({ queryKey: ["user"] });
     },
   });
 }
