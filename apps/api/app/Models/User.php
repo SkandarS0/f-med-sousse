@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Parental\HasChildren;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasUuids;
+    use HasFactory, Notifiable, HasUuids, HasChildren;
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +23,14 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'type',
+    ];
+
+    protected string $childColumn = 'type';
+
+    protected array $childTypes = [
+        'student' => Student::class,
+        'admin' => Admin::class,
     ];
 
     /**

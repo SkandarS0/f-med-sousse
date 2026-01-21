@@ -6,6 +6,7 @@ export const userSchema = z.object({
   lastName: z.string(),
   email: z.email(),
   emailVerifiedAt: z.iso.datetime().nullable(),
+  type: z.enum(["admin", "student"]),
   createdAt: z.iso.datetime(),
   updatedAt: z.iso.datetime().nullable(),
 });
