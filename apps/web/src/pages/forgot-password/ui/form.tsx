@@ -32,7 +32,7 @@ export function ForgotPasswordForm() {
           </form.AppField>
 
           <form.SubmitButton
-            label={t("user.actions.send_reset_password_instructions")}
+            label={t("user.actions.send_link")}
             // error={loginMutation.error}
           />
         </form.AppForm>
