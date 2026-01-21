@@ -13,7 +13,7 @@ export const Route = createFileRoute("/(guest)/login")({
         throw: false,
         to:
           search.redirectTo ||
-          (context.auth.user?.type === "admin" ? "/admin" : "/student"),
+          (context.auth.userOfType("admin") ? "/admin" : "/student"),
       });
     }
   },
