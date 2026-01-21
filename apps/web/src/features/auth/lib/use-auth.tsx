@@ -6,13 +6,13 @@ import { useAuthLogout } from "../api/use-logout";
 export type AuthContextType = {
   user: User | undefined;
   isAuthenticated: boolean;
-  userOfType: (userType: UserType) => boolean;
+  userTypeOf: (userType: UserType) => boolean;
 };
 
 export const AuthContext = createContext<AuthContextType>({
   user: undefined,
   isAuthenticated: false,
-  userOfType: () => false,
+  userTypeOf: () => false,
 });
 
 export function useAuth() {

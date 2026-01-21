@@ -1,7 +1,7 @@
 import { IconLoader } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "@/features/auth/lib/use-auth";
 import { userQueries } from "@/entities/user/api/query";
+import { AuthContext } from "@/features/auth/lib/use-auth";
 
 type AuthProviderProps = {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       value={{
         user,
         isAuthenticated,
-        userOfType: (userType) => user?.type === userType,
+        userTypeOf: (userType) => user?.type === userType,
       }}
     >
       {children}
