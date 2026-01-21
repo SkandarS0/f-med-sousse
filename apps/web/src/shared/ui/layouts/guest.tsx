@@ -1,6 +1,6 @@
 import { Outlet } from "@tanstack/react-router";
-import { LanguageToggle } from "@/features/change-language";
 import { AppLogo } from "@/shared/ui/app-logo";
+import { LanguageToggle } from "../language-toggle";
 
 export function GuestLayout() {
   return (

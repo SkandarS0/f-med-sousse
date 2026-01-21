@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/ui/primitives/dropdown-menu";
 import { Separator } from "@/shared/ui/primitives/separator";
-import type { AvailableLanguages } from "../model";
+import type { SupportedLng } from "../i18n/i18next";
 
 type LanguageToggleProps = {
   as?: "menu-item" | "dropdown-menu" | "footer-link";
@@ -18,7 +18,7 @@ type LanguageToggleProps = {
 
 export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
   const { i18n } = useTranslation();
-  const handleLanguageChange = (lang: AvailableLanguages) => {
+  const handleLanguageChange = (lang: SupportedLng) => {
     if (lang === i18n.language) {
       return;
     }
@@ -32,15 +32,15 @@ export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
   const Component = variants[as];
   return (
     <Component
-      language={i18n.language as AvailableLanguages}
+      language={i18n.language as SupportedLng}
       handleLanguageChange={handleLanguageChange}
     />
   );
 }
 
 type LanguageToggleComponentProps = {
-  language: AvailableLanguages;
-  handleLanguageChange: (lang: AvailableLanguages) => void;
+  language: SupportedLng;
+  handleLanguageChange: (lang: SupportedLng) => void;
 };
 
 function DropdownMenuLanguageToggle({
