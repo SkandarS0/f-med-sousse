@@ -11,10 +11,25 @@ export default {
   "forgot-password": {
     components: {
       card: {
-        title: "Réinitialisez votre mot de passe",
+        title: "Récupérez votre mot de passe",
         description:
-          "Entrez votre email pour recevoir les instructions de réinitialisation du mot de passe.",
+          "Entrez votre email et nous vous enverrons un lien de réinitialisation.",
       },
+    },
+  },
+  "reset-password": {
+    components: {
+      card: {
+        title: "Choisissez un nouveau mot de passe",
+        description: "Saisissez et confirmez votre nouveau mot de passe.",
+      },
+    },
+    error: {
+      h1: "Lien de réinitialisation de mot de passe invalide",
+      p1: "Ce lien est invalide ou a expiré.",
+      p2: "Veuillez en demander un nouveau.",
+      requestNewLink: "Demander un nouveau lien",
+      backToSignIn: "Retour à la connexion",
     },
   },
 };
