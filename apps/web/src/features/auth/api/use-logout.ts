@@ -5,7 +5,7 @@ export function useAuthLogout() {
   return useMutation({
     mutationFn: async () => logoutRequest(),
     onSuccess(_data, _variables, _onMutateResult, context) {
-      context.client.removeQueries({ queryKey: ["user"] });
+      context.client.resetQueries({ queryKey: ["user"] });
     },
   });
 }
