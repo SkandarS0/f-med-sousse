@@ -8,7 +8,6 @@ export function routerInstance() {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
-    defaultPreload: "intent",
   });
 
   setupRouterSsrQueryIntegration({

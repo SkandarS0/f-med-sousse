@@ -41,7 +41,9 @@
       "cache": true,
       "executor": "nx:run-commands",
       "inputs": [
-        "{projectRoot}/database/migrations/*.php"
+        "default",
+        "{projectRoot}/database/migrations/*.php",
+        "{projectRoot}/database/*.sqlite"
       ],
       "options": {
         "command": "php artisan migrate",

@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "i18n":{
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bunx i18next-cli",
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}
