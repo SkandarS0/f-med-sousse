@@ -55,6 +55,7 @@ export function SubmitButton({
         {(state) => (
           <Button
             type="submit"
+            size={"lg"}
             disabled={
               state.isSubmitting || !state.canSubmit || state.isPristine
             }
