@@ -1,6 +1,8 @@
-import { Outlet } from "@tanstack/react-router";
+import { Link, Outlet } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { AppLogo } from "@/shared/ui/app-logo";
 import { LanguageToggle } from "../language-toggle";
+import { Button } from "../primitives/button";
 
 export function GuestLayout() {
   return (
@@ -19,12 +21,15 @@ export function GuestLayout() {
 }
 
 function GuestHeader() {
+  const { t } = useTranslation("models");
   return (
     <header className="shrink-0 p-3 border-b bg-muted/50">
       <div className="flex items-center">
         <AppLogo />
         <div className="ml-auto">
-          <LanguageToggle as="dropdown-menu" />
+          <Button variant="outline" size="lg">
+            <Link to="/login">{t("user.actions.login")}</Link>
+          </Button>
         </div>
       </div>
     </header>
