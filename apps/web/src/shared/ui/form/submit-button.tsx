@@ -56,9 +56,7 @@ export function SubmitButton({
           <Button
             type="submit"
             size={"lg"}
-            disabled={
-              state.isSubmitting || !state.canSubmit || state.isPristine
-            }
+            disabled={state.isSubmitting || !state.canSubmit}
           >
             {state.isSubmitting ? (
               <IconLoader2 className="animate-spin" />
