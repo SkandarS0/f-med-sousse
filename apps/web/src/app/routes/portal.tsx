@@ -37,7 +37,7 @@ function RouteComponent() {
           <Link to="/student">Student Portal</Link>
         </Button>
         <HelloComponent />
-        <LanguageToggle as="footer-link" />
+        <LanguageToggle as="links" />
       </header>
     </div>
   );

@@ -13,7 +13,7 @@ import { Separator } from "@/shared/ui/primitives/separator";
 import type { SupportedLng } from "../i18n/i18next";
 
 type LanguageToggleProps = {
-  as?: "menu-item" | "dropdown-menu" | "footer-link";
+  as?: "menu-item" | "dropdown-menu" | "links";
 };
 
 export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
@@ -27,7 +27,7 @@ export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
   const variants = {
     "menu-item": MenuItemLanguageToggle,
     "dropdown-menu": DropdownMenuLanguageToggle,
-    "footer-link": FooterLinkLanguageToggle,
+    "links": FooterLinkLanguageToggle,
   };
   const Component = variants[as];
   return (

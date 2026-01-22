@@ -48,7 +48,7 @@ function GuestFooter() {
         <div className="hidden sm:block" />
         <div className="text-center">All rights reserved.</div>
         <div className="sm:ml-auto">
-          <LanguageToggle as="footer-link" />
+          <LanguageToggle as="links" />
         </div>
       </div>
     </footer>
