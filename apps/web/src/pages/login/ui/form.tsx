@@ -55,10 +55,12 @@ export function LoginForm() {
             label={t("user.actions.login")}
             error={loginMutation.error}
           />
+          <Button variant={"outline"} size={"sm"}>
+            <Link to="/forgot-password" preload="intent">
+              {t("user.questions.forgotPassword")}
+            </Link>
+          </Button>
         </form.AppForm>
-        <Button>
-          <Link to="/portal">Go to portal</Link>
-        </Button>
       </FieldGroup>
     </Form>
   );
