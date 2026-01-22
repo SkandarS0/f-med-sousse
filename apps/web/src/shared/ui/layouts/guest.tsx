@@ -1,4 +1,5 @@
-import { Link, Outlet } from "@tanstack/react-router";
+import { Link, Outlet, useLocation } from "@tanstack/react-router";
+import { Activity } from "react";
 import { useTranslation } from "react-i18next";
 import { AppLogo } from "@/shared/ui/app-logo";
 import { LanguageToggle } from "../language-toggle";
@@ -22,15 +23,19 @@ export function GuestLayout() {
 
 function GuestHeader() {
   const { t } = useTranslation("models");
+  const { pathname } = useLocation();
+
   return (
     <header className="shrink-0 p-3 border-b bg-muted/50">
       <div className="flex items-center">
         <AppLogo />
-        <div className="ml-auto">
-          <Button variant="outline" size="lg">
-            <Link to="/login">{t("user.actions.login")}</Link>
-          </Button>
-        </div>
+        <Activity mode={pathname !== "/login" ? "visible" : "hidden"}>
+          <div className="ml-auto">
+            <Button variant="outline" size="lg">
+              <Link to="/login">{t("user.actions.login")}</Link>
+            </Button>
+          </div>
+        </Activity>
       </div>
     </header>
   );
