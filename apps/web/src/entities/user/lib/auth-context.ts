@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { User, UserType } from "../model/schemas";
+import type { User, UserType } from "../model/dto";
 
 export type AuthContextType = {
   user: User | undefined;
@@ -17,7 +17,7 @@ export function useAuth() {
   const authContext = useContext(AuthContext);
   if (!authContext) {
     throw new Error(
-      "useAuth must be used within an Component using the AuthContext",
+      "useAuth must be used within a Component using the AuthContext",
     );
   }
   return authContext;

@@ -1,6 +1,7 @@
 import { queryOptions } from "@tanstack/react-query";
 import { api } from "@/shared/api/axios";
-import type { GetUserResponseBody } from "./dto";
+import { userMapper } from "../lib/mapper";
+import type { ApiUser } from "./dto";
 
 export const userQueries = {
   get: () => ["user"] as const,
@@ -11,6 +12,7 @@ export const userQueries = {
         const response = await getUserRequest();
         return response.data;
       },
+      select: (data) => userMapper.fromApi(data),
       retry: false,
       staleTime: 5 * 60 * 1000, // 5 minutes
       refetchOnWindowFocus: false,
@@ -19,5 +21,5 @@ export const userQueries = {
 };
 
 async function getUserRequest() {
-  return await api.get<GetUserResponseBody>("/api/user");
+  return await api.get<ApiUser>("/api/user");
 }

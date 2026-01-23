@@ -1,3 +1,14 @@
-import type { User } from "../model/schemas";
+import z from "zod";
 
-export type GetUserResponseBody = User;
+export const apiUserSchema = z.object({
+  id: z.uuid(),
+  first_name: z.string(),
+  last_name: z.string(),
+  email: z.email(),
+  email_verified_at: z.iso.datetime().nullable(),
+  type: z.enum(["admin", "student"]),
+  created_at: z.iso.datetime(),
+  updated_at: z.iso.datetime().nullable(),
+});
+
+export type ApiUser = z.infer<typeof apiUserSchema>;

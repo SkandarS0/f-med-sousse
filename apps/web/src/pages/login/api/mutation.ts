@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { userQueries } from "@/entities/user/api/query";
+import type { LoginFormSchema } from "@/entities/user/model/schemas";
 import { api, getCsrfCookie } from "@/shared/api/axios";
-import type { LoginFormSchema } from "../model/schema";
 
 type LoginRequestBody = LoginFormSchema;
 

@@ -1,16 +1,12 @@
 import z from "zod";
+import { userSchema } from "./dto";
 
-export const userSchema = z.object({
-  id: z.uuid(),
-  firstName: z.string(),
-  lastName: z.string(),
-  email: z.email(),
-  emailVerifiedAt: z.iso.datetime().nullable(),
-  type: z.enum(["admin", "student"]),
-  createdAt: z.iso.datetime(),
-  updatedAt: z.iso.datetime().nullable(),
-});
+export const loginFormSchema = userSchema
+  .pick({
+    email: true,
+  })
+  .extend({
+    password: z.string(),
+  });
 
-export type User = z.infer<typeof userSchema>;
-
-export type UserType = z.infer<typeof userSchema.shape.type>;
+export type LoginFormSchema = z.infer<typeof loginFormSchema>;
