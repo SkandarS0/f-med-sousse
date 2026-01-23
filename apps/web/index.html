@@ -10,27 +10,27 @@
   <link rel="manifest" href="/manifest.json" />
   <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
   <script>
-  (() => {
-    function applyTheme() {
-      try {
-        const theme = localStorage.getItem("theme") || "system";
-        const root = document.documentElement;
-        root.classList.remove("light", "dark");
+    (() => {
+      function applyTheme() {
+        try {
+          const theme = localStorage.getItem("theme") || "system";
+          const root = document.documentElement;
+          root.classList.remove("light", "dark");
 
-        if (theme === "system") {
-          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          root.classList.add(prefersDark ? "dark" : "light");
-        } else {
-          root.classList.add(theme);
+          if (theme === "system") {
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            root.classList.add(prefersDark ? "dark" : "light");
+          } else {
+            root.classList.add(theme);
+          }
+        } catch (error) {
+          console.error("Error applying theme:", error);
         }
-      } catch (error) {
-        console.error("Error applying theme:", error);
       }
-    }
 
-    applyTheme();
-  })();
-</script>
+      applyTheme();
+    })();
+  </script>
 </head>
 
 <body>
