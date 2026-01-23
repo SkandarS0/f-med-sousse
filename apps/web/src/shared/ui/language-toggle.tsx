@@ -27,7 +27,7 @@ export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
   const variants = {
     "menu-item": MenuItemLanguageToggle,
     "dropdown-menu": DropdownMenuLanguageToggle,
-    "links": FooterLinkLanguageToggle,
+    links: FooterLinkLanguageToggle,
   };
   const Component = variants[as];
   return (
@@ -56,7 +56,7 @@ function DropdownMenuLanguageToggle({
           </Button>
         }
       />
-      <DropdownMenuContent withArrow>
+      <DropdownMenuContent>
         <DropdownMenuRadioGroup
           value={language}
           onValueChange={handleLanguageChange}
