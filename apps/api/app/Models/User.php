@@ -3,16 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Parental\HasChildren;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasLocalePreference
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasUuids, HasChildren, CanResetPassword;
+    use CanResetPassword, HasChildren, HasFactory, HasUuids, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -25,9 +26,14 @@ class User extends Authenticatable
         'email',
         'password',
         'type',
+        'locale',
     ];
 
     protected string $childColumn = 'type';
+
+    protected $attributes = [
+        'locale' => 'fr',
+    ];
 
     protected array $childTypes = [
         'student' => Student::class,
@@ -55,5 +61,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function preferredLocale(): string
+    {
+        return $this->locale;
     }
 }

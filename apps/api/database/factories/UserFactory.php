@@ -29,6 +29,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
+            'locale' => fake()->randomElement(config('app.supported_locales')),
             'remember_token' => Str::random(10),
             'type' => 'student',
         ];
