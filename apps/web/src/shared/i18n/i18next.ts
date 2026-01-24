@@ -35,7 +35,7 @@ export const resources = {
   },
 } as const;
 
-const supportedLngs = ["fr", "en"] as const;
+export const supportedLngs = ["fr", "en"] as const;
 
 export type SupportedLng = (typeof supportedLngs)[number];
 
