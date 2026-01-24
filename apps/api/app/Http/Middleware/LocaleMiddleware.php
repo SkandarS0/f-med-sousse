@@ -15,6 +15,9 @@ class LocaleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if ($request->method() === 'OPTIONS') {
+            return $next($request);
+        }
         $clientLocale = $request->cookie(config('app.locale_cookie_name'));
         $supportedLocales = config('app.supported_locales');
         if (! in_array($clientLocale, $supportedLocales)) {
