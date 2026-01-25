@@ -5,6 +5,8 @@ import { Button } from "@/shared/ui/primitives/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
@@ -49,6 +51,7 @@ function DropdownMenuLanguageToggle({
   language,
   handleLanguageChange,
 }: LanguageToggleComponentProps) {
+  const { t } = useTranslation("shared_ui");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -59,13 +62,16 @@ function DropdownMenuLanguageToggle({
         }
       />
       <DropdownMenuContent>
-        <DropdownMenuRadioGroup
-          value={language}
-          onValueChange={handleLanguageChange}
-        >
-          <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="fr">Français</DropdownMenuRadioItem>
-        </DropdownMenuRadioGroup>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>{t("language-toggle.label")}</DropdownMenuLabel>
+          <DropdownMenuRadioGroup
+            value={language}
+            onValueChange={handleLanguageChange}
+          >
+            <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="fr">Français</DropdownMenuRadioItem>
+          </DropdownMenuRadioGroup>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );

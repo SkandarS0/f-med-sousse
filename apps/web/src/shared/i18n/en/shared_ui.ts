@@ -9,4 +9,7 @@ export default {
     system: "System",
     label: "Theme",
   },
+  "language-toggle": {
+    label: "Language",
+  },
 };
