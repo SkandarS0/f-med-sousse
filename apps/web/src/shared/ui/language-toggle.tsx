@@ -16,6 +16,12 @@ type LanguageToggleProps = {
   as?: "menu-item" | "dropdown-menu" | "links";
 };
 
+const variants = {
+  "menu-item": MenuItemLanguageToggle,
+  "dropdown-menu": DropdownMenuLanguageToggle,
+  links: FooterLinkLanguageToggle,
+};
+
 export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
   const { i18n } = useTranslation();
   const handleLanguageChange = (lang: SupportedLng) => {
@@ -24,11 +30,7 @@ export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
     }
     i18n.changeLanguage(lang);
   };
-  const variants = {
-    "menu-item": MenuItemLanguageToggle,
-    "dropdown-menu": DropdownMenuLanguageToggle,
-    links: FooterLinkLanguageToggle,
-  };
+
   const Component = variants[as];
   return (
     <Component
