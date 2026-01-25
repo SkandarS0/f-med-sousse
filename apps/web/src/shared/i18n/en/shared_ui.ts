@@ -3,4 +3,10 @@ export default {
     show: "Show password",
     hide: "Hide password",
   },
+  "theme-toggle": {
+    light: "Light",
+    dark: "Dark",
+    system: "System",
+    label: "Theme",
+  },
 };
