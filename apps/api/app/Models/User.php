@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Translation\HasLocalePreference;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,6 +34,10 @@ class User extends Authenticatable implements HasLocalePreference
 
     protected $attributes = [
         'locale' => 'fr',
+    ];
+
+    protected $appends = [
+        'full_name',
     ];
 
     protected array $childTypes = [
@@ -66,5 +71,14 @@ class User extends Authenticatable implements HasLocalePreference
     public function preferredLocale(): string
     {
         return $this->locale;
+    }
+
+    protected function fullName(): Attribute
+    {
+        return new Attribute(
+            get: fn (): string => $this->preferredLocale() === 'fr'
+                ? "{$this->last_name} {$this->first_name}"
+                : "{$this->first_name} {$this->last_name}",
+        );
     }
 }

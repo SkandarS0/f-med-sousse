@@ -5,6 +5,7 @@ export const apiUserSchema = z.object({
   id: z.uuid(),
   first_name: z.string(),
   last_name: z.string(),
+  full_name: z.string(),
   email: z.email(),
   email_verified_at: z.iso.datetime().nullable(),
   type: z.enum(["admin", "student"]),
