@@ -7,7 +7,6 @@ import reportWebVitals from "@/shared/lib/web-vitals";
 import { AuthProvider } from "../providers/auth-provider";
 import { LocaleProvider } from "../providers/locale-provider";
 import { AppRouterProvider } from "../providers/router-provider";
-import { ThemeProvider } from "../providers/theme-provider";
 
 // Render the app
 const rootElement = document.getElementById("app");
@@ -16,13 +15,11 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <LocaleProvider>
-        <ThemeProvider>
-          <QueryClientProvider client={queryClient}>
-            <AuthProvider>
-              <AppRouterProvider />
-            </AuthProvider>
-          </QueryClientProvider>
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider>
+            <AppRouterProvider />
+          </AuthProvider>
+        </QueryClientProvider>
       </LocaleProvider>
     </StrictMode>,
   );
