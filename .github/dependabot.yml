@@ -6,9 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "bun" # See documentation for possible values
-    directories:
-    -  "/"
-    -  "apps/web"
+    directory: "/"
     schedule:
       interval: "weekly"
       day: "sunday"
