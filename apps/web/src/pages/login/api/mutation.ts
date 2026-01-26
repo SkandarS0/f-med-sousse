@@ -9,7 +9,7 @@ type LoginResponseBody = { two_factor: boolean };
 
 export function useAuthLogin() {
   return useMutation({
-    mutationFn: async (data: LoginFormSchema) => await loginRequest(data),
+    mutationFn: (data: LoginFormSchema) => loginRequest(data),
     onSuccess(_data, _variables, _onMutateResult, context) {
       context.client.refetchQueries(userQueries.xGet());
     },
@@ -17,7 +17,6 @@ export function useAuthLogin() {
 }
 
 async function loginRequest(data: LoginRequestBody) {
-  return await getCsrfCookie().then(() =>
-    api.post<LoginResponseBody>("/api/auth/login", data),
-  );
+  await getCsrfCookie();
+  return await api.post<LoginResponseBody>("/api/auth/login", data);
 }
