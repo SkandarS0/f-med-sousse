@@ -14,3 +14,8 @@ updates:
       - "SkandarS0"
     commit-message:
       prefix: "chore(deps)"
+    groups:
+      "tanstack-router":
+        patterns:
+          - "@tanstack/react-router*"
+          - "@tanstack/router-plugin"
