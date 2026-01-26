@@ -39,7 +39,7 @@
   "devDependencies": {
     "@tanstack/devtools-event-client": "^0.4.0",
     "@tanstack/devtools-vite": "^0.4.1",
-    "@types/react": "^19.2.8",
+    "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "babel-plugin-react-compiler": "^1.0.0",
