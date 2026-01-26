@@ -1,4 +1,4 @@
-import z from "zod";
+import type z from "zod";
 import { apiUserSchema } from "../api/dto";
 
 export const userSchema = apiUserSchema
@@ -10,11 +10,11 @@ export const userSchema = apiUserSchema
     updated_at: true,
   })
   .extend({
-    firstName: z.string(),
-    lastName: z.string(),
-    emailVerifiedAt: z.string().nullable(),
-    createdAt: z.string(),
-    updatedAt: z.string().nullable(),
+    firstName: apiUserSchema.shape.first_name,
+    lastName: apiUserSchema.shape.last_name,
+    emailVerifiedAt: apiUserSchema.shape.email_verified_at,
+    createdAt: apiUserSchema.shape.created_at,
+    updatedAt: apiUserSchema.shape.updated_at,
   });
 
 export type User = z.infer<typeof userSchema>;
