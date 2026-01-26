@@ -4,7 +4,7 @@ import { api, getCsrfCookie } from "@/shared/api/axios";
 
 export function useAuthLogout() {
   return useMutation({
-    mutationFn: async () => logoutRequest(),
+    mutationFn: () => logoutRequest(),
     onSuccess(_data, _variables, _onMutateResult, context) {
       context.client.resetQueries(userQueries.xGet());
     },
@@ -13,5 +13,5 @@ export function useAuthLogout() {
 
 async function logoutRequest() {
   await getCsrfCookie();
-  return api.post("/api/auth/logout");
+  return await api.post("/api/auth/logout");
 }
