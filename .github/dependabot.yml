@@ -19,3 +19,7 @@ updates:
         patterns:
           - "@tanstack/react-router*"
           - "@tanstack/router-plugin"
+    ignore:
+      - dependency-name: "@types/node"
+        versions:
+          - ">=25.0.0"
