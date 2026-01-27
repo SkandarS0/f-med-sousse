@@ -8,8 +8,7 @@ updates:
   - package-ecosystem: "bun" # See documentation for possible values
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "sunday"
+      interval: "daily"
     assignees:
       - "SkandarS0"
     commit-message:
