@@ -2,11 +2,14 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use function Pest\Laravel\{actingAs, getJson, postJson};
 
-it('returns a successful response', fn ()=> getJson('/api')->assertSuccessful());
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\getJson;
+use function Pest\Laravel\postJson;
 
-it('returns the csrf cookie', fn ()=> getJson('/sanctum/csrf-cookie')->assertCookie('XSRF-TOKEN'));
+it('returns a successful response', fn () => getJson('/api')->assertSuccessful());
+
+it('returns the csrf cookie', fn () => getJson('/sanctum/csrf-cookie')->assertCookie('XSRF-TOKEN'));
 
 test('unauthenticated user cannot access user endpoint', function () {
     getJson('/api/user')->assertUnauthorized();
@@ -37,7 +40,7 @@ test('a user can login with correct credentials with fortify', function () {
         'email' => $user->email,
         'password' => $password,
     ], [
-        "X-CSRF-TOKEN" => $csrfToken,
+        'X-CSRF-TOKEN' => $csrfToken,
     ]);
     $response->assertOk();
 });
