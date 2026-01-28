@@ -18,5 +18,3 @@ export const userSchema = apiUserSchema
   });
 
 export type User = z.infer<typeof userSchema>;
-
-export type UserType = z.infer<typeof apiUserSchema.shape.type>;
