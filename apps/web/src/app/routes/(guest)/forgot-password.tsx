@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { z } from "zod";
+import z from "zod";
 import { ForgotPasswordPage } from "@/pages";
 import { useRouteTitle } from "@/shared/routes/title";
 
