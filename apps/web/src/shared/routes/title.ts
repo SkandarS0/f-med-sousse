@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { appConfig } from "../config";
+import { appConfig } from "../config/app";
 import type { FileRoutesByTo } from "./routeTree.gen";
 
 type Routes = keyof FileRoutesByTo;
