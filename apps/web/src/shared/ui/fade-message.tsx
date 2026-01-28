@@ -60,8 +60,7 @@ export function FadeMessage({
   }
 
   return (
-    <div
-      role="status"
+    <output
       aria-live="polite"
       className={cn(
         "text-sm text-center transition-all duration-300 ease-out motion-reduce:transition-none ",
@@ -70,6 +69,6 @@ export function FadeMessage({
       )}
     >
       {content}
-    </div>
+    </output>
   );
 }
