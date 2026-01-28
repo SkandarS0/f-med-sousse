@@ -18,4 +18,4 @@
 Laravel project, using sanctum, fortify, session based authentication.
 
 ## apps/web:
-React project with tanstack router (for anything related to tanstack libraries check the `doc`, `search-doc`, `list-libraries` tools of the `tanstack` mcp server), i18next-react for i18n.
+React project with tanstack router (for anything related to tanstack libraries check the `doc`, `search-doc`, `list-libraries` tools of the `tanstack` mcp server), i18next-react for i18n, this also strictly follows Feature-sliced design
