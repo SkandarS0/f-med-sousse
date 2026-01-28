@@ -36,7 +36,7 @@ test('a user can login with correct credentials with fortify', function () {
     $csrfResponse = getJson('/sanctum/csrf-cookie');
     $csrfResponse->assertCookie('XSRF-TOKEN');
     $csrfToken = $csrfResponse->getCookie('XSRF-TOKEN')->getValue();
-    $response = postJson('/api/auth/login', [
+    $response = postJson('/auth/login', [
         'email' => $user->email,
         'password' => $password,
     ], [
