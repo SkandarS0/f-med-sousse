@@ -5,6 +5,7 @@ import type {
   ResetPasswordRequestBody,
   ResetPasswordResponseBody,
 } from "./dto";
+import { fortifyConfig } from "@/shared/config/fortify";
 
 export function useAuthResetPassword() {
   return useMutation({
@@ -17,6 +18,6 @@ export function useAuthResetPassword() {
 
 async function resetPasswordRequest(data: ResetPasswordRequestBody) {
   return await getCsrfCookie().then(() =>
-    api.post<ResetPasswordResponseBody>("/api/auth/reset-password", data),
+    api.post<ResetPasswordResponseBody>(fortifyConfig.prefix("/reset-password"), data),
   );
 }

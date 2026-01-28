@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { userQueries } from "@/entities/user/api/query";
 import { api, getCsrfCookie } from "@/shared/api/axios";
+import { fortifyConfig } from "@/shared/config/fortify";
 import type { LoginFormSchema } from "../model/schemas";
 
 type LoginRequestBody = LoginFormSchema;
@@ -18,5 +19,8 @@ export function useAuthLogin() {
 
 async function loginRequest(data: LoginRequestBody) {
   await getCsrfCookie();
-  return await api.post<LoginResponseBody>("/api/auth/login", data);
+  return await api.post<LoginResponseBody>(
+    fortifyConfig.prefix("/login"),
+    data,
+  );
 }

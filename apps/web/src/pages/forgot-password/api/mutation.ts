@@ -5,6 +5,7 @@ import type {
   ForgotPasswordRequestBody,
   ForgotPasswordResponseBody,
 } from "./dto";
+import { fortifyConfig } from "@/shared/config/fortify";
 
 export function useAuthForgotPassword() {
   return useMutation({
@@ -17,6 +18,6 @@ export function useAuthForgotPassword() {
 
 async function forgotPasswordRequest(data: ForgotPasswordRequestBody) {
   return await getCsrfCookie().then(() =>
-    api.post<ForgotPasswordResponseBody>("/api/auth/forgot-password", data),
+    api.post<ForgotPasswordResponseBody>(fortifyConfig.prefix("/forgot-password"), data),
   );
 }
