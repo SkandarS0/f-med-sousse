@@ -1,6 +1,6 @@
 import { createRouter } from "@tanstack/react-router";
 import { setupRouterSsrQueryIntegration } from "@tanstack/react-router-ssr-query";
-import { useAuth } from "@/entities/user/lib/auth-context";
+import { useAuth } from "@/features/auth/lib/use-auth";
 import { queryClient } from "@/shared/api/query-client.ts";
 import { routeTree } from "@/shared/routes/routeTree.gen.ts";
 

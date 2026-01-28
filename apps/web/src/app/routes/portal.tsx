@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useAuthLogout } from "@/entities/user/api/mutation";
+import { useAuthLogout } from "@/features/auth/api/use-logout";
 import { useRouteTitle } from "@/shared/routes/title";
 import { LanguageToggle } from "@/shared/ui/language-toggle";
 import { Button } from "@/shared/ui/primitives/button";

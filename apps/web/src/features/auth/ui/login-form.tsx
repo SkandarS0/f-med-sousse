@@ -1,11 +1,11 @@
 import { getRouteApi, Link, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useAuthLogin } from "@/entities/user/api/mutation";
-import { loginFormSchema } from "@/entities/user/model/schemas";
 import { useAppForm } from "@/shared/lib/form";
 import { Form } from "@/shared/ui/form/wrapper";
 import { Button } from "@/shared/ui/primitives/button";
 import { FieldGroup } from "@/shared/ui/primitives/field";
+import { useAuthLogin } from "../api/use-login";
+import { loginFormSchema } from "../model/schemas";
 
 const loginRouteApi = getRouteApi("/(guest)/login");
 
