@@ -1,8 +1,8 @@
 import * as z from "zod/mini";
-import { userSchema } from "@/entities/user/model/dto";
+import { User } from "@/entities/user/model/dto";
 
-export const loginFormSchema = z.extend(
-  z.pick(userSchema, {
+export const LoginFormSchema = z.extend(
+  z.pick(User, {
     email: true,
   }),
   {
@@ -11,4 +11,4 @@ export const loginFormSchema = z.extend(
   },
 );
 
-export type LoginFormSchema = z.infer<typeof loginFormSchema>;
+export type LoginFormSchema = z.infer<typeof LoginFormSchema>;

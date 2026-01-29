@@ -6,7 +6,7 @@ export enum UserType {
   STUDENT = "student",
 }
 
-export const apiUserSchema = z.object({
+export const ApiUser = z.object({
   id: z.uuid(),
   first_name: z.string(),
   last_name: z.string(),
@@ -18,4 +18,4 @@ export const apiUserSchema = z.object({
   updated_at: z.nullable(z.iso.datetime()),
 });
 
-export type ApiUser = z.infer<typeof apiUserSchema>;
+export type ApiUser = z.infer<typeof ApiUser>;

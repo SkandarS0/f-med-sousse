@@ -1,8 +1,8 @@
 import * as z from "zod/mini";
-import { apiUserSchema } from "../api/dto";
+import { ApiUser } from "../api/dto";
 
-export const userSchema = z.extend(
-  z.omit(apiUserSchema, {
+export const User = z.extend(
+  z.omit(ApiUser, {
     first_name: true,
     last_name: true,
     email_verified_at: true,
@@ -10,12 +10,12 @@ export const userSchema = z.extend(
     updated_at: true,
   }),
   {
-    firstName: apiUserSchema.shape.first_name,
-    lastName: apiUserSchema.shape.last_name,
-    emailVerifiedAt: apiUserSchema.shape.email_verified_at,
-    createdAt: apiUserSchema.shape.created_at,
-    updatedAt: apiUserSchema.shape.updated_at,
+    firstName: ApiUser.shape.first_name,
+    lastName: ApiUser.shape.last_name,
+    emailVerifiedAt: ApiUser.shape.email_verified_at,
+    createdAt: ApiUser.shape.created_at,
+    updatedAt: ApiUser.shape.updated_at,
   },
 );
 
-export type User = z.infer<typeof userSchema>;
+export type User = z.infer<typeof User>;

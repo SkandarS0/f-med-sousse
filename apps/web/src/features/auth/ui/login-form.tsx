@@ -5,7 +5,7 @@ import { Form } from "@/shared/ui/form/wrapper";
 import { Button } from "@/shared/ui/primitives/button";
 import { FieldGroup } from "@/shared/ui/primitives/field";
 import { useAuthLogin } from "../api/use-login";
-import { loginFormSchema } from "../model/schemas";
+import { LoginFormSchema } from "../model/schemas";
 
 const loginRouteApi = getRouteApi("/(guest)/login");
 
@@ -21,7 +21,7 @@ export function LoginForm() {
       remember: false,
     },
     validators: {
-      onChange: loginFormSchema,
+      onChange: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
       await loginMutation.mutateAsync(value);
