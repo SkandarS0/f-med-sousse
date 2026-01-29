@@ -6,6 +6,28 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              test: /node_modules\/(react|react-dom)/,
+              name: "react",
+            },
+            {
+              test: /node_modules\/(@tanstack\/router|@tanstack\/react-router)/,
+              name: "router",
+            },
+            {
+              test: /node_modules\/(zod)/,
+              name: "validation",
+            },
+          ],
+        },
+      },
+    },
+  },
   plugins: [
     devtools({
       injectSource: { enabled: false },
