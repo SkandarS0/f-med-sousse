@@ -57,11 +57,11 @@ export function ResetPasswordForm({
               />
             )}
           </form.AppField>
-
           <form.SubmitButton
             label={t("user.actions.send_link")}
             error={resetPasswordMutation.error}
             success={resetPasswordMutation.data?.message}
+            withReset
           />
         </form.AppForm>
       </FieldGroup>
