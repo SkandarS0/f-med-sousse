@@ -34,20 +34,5 @@
     "source.fixAll.biome": "explicit",
     "source.removeUnusedImports": "explicit"
   },
-  "Laravel.basePath": "./apps/api",
-  "sqltools.useNodeRuntime": true,
-  "sqltools.dependencyManager": {
-    "packageManager": "bun",
-    "installArgs": ["install"],
-    "runScriptArgs": ["run"],
-    "autoAccept": false
-  },
-  "sqltools.connections": [
-    {
-      "previewLimit": 50,
-      "driver": "SQLite",
-      "name": "f-med-sousse-dev",
-      "database": "apps\\api\\database\\database.sqlite"
-    }
-  ]
+  "Laravel.basePath": "./apps/api"
 }
