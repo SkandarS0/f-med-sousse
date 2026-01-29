@@ -7,6 +7,7 @@ export default {
       },
       form: {
         forgotPassword: "Forgot your password?",
+        rememberMe: "Remember me",
       },
     },
   },

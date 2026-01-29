@@ -8,6 +8,7 @@ export default {
       },
       form: {
         forgotPassword: "Mot de passe oublié ?",
+        rememberMe: "Se souvenir de moi",
       }
     },
   },

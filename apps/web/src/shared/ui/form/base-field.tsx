@@ -1,22 +1,49 @@
 import { useFieldContext } from "@/shared/lib/form";
+import { FieldContent, FieldDescription } from "../primitives/field";
 import { FormField, FormFieldErrors, FormFieldLabel } from "../primitives/form";
 
-type BaseFormFieldProps = {
-  children: React.ReactNode;
+export type CommonFormFieldProps = {
   label: string;
+  description?: string;
 };
-export function BaseFormField({ children, label }: BaseFormFieldProps) {
-  const field = useFieldContext<string>();
-  const isInvalid = !field.state.meta.isValid;
+
+type BaseFormFieldProps = {
+  orientation?: "vertical" | "horizontal" | "responsive";
+  children: React.ReactNode;
+};
+export function BaseFormField({
+  children,
+  label,
+  orientation = "vertical",
+  description,
+}: CommonFormFieldProps & BaseFormFieldProps) {
+  const field = useFieldContext();
+  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
   return (
     <FormField
+      orientation={orientation}
       name={field.name}
       invalid={isInvalid}
       dirty={field.state.meta.isDirty}
       touched={field.state.meta.isTouched}
     >
-      <FormFieldLabel htmlFor={field.name}>{label}</FormFieldLabel>
-      {children}
+      {orientation === "vertical" ? (
+        <>
+          <FieldContent>
+            <FormFieldLabel htmlFor={field.name}>{label}</FormFieldLabel>
+            {description && <FieldDescription>{description}</FieldDescription>}
+          </FieldContent>
+          {children}
+        </>
+      ) : (
+        <>
+          {children}
+          <FieldContent>
+            <FormFieldLabel htmlFor={field.name}>{label}</FormFieldLabel>
+            {description && <FieldDescription>{description}</FieldDescription>}
+          </FieldContent>
+        </>
+      )}
       <FormFieldErrors match={isInvalid} errors={field.state.meta.errors} />
     </FormField>
   );

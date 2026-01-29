@@ -18,6 +18,7 @@ export function LoginForm() {
     defaultValues: {
       email: "",
       password: "",
+      remember: false,
     },
     validators: {
       onChange: loginFormSchema,
@@ -48,6 +49,13 @@ export function LoginForm() {
               <field.PasswordInput
                 label={t("user.attributes.password")}
                 autoComplete="current-password"
+              />
+            )}
+          </form.AppField>
+          <form.AppField name="remember">
+            {(field) => (
+              <field.CheckboxInput
+                label={t("pages:login.components.form.rememberMe")}
               />
             )}
           </form.AppField>

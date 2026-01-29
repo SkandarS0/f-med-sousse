@@ -7,6 +7,7 @@ export const loginFormSchema = z.extend(
   }),
   {
     password: z.string().check(z.minLength(1)),
+    remember: z.boolean(),
   },
 );
 
