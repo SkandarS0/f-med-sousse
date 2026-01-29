@@ -1,4 +1,4 @@
-import { IconLoader } from "@tabler/icons-react";
+import { IconLoader3 } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import { userQueries } from "@/entities/user/api/query";
 import { AuthContext } from "@/features/auth/lib/auth-context";
@@ -15,7 +15,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   if (userQuery.isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <IconLoader className="animate-spin" />
+        <IconLoader3 className="animate-spin" />
       </div>
     );
   }
