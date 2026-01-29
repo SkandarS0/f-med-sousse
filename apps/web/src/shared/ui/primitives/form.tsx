@@ -9,7 +9,7 @@ import {
   type FieldsetRootProps,
 } from "@base-ui/react/fieldset";
 import { cva, type VariantProps } from "class-variance-authority";
-import type z from "zod";
+import type * as z from "zod/mini";
 import { cn } from "@/shared/lib/utils";
 
 const formFieldVariants = cva(

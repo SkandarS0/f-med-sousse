@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import z from "zod";
+import * as z from "zod/mini";
 import { ForgotPasswordPage } from "@/pages/forgot-password/ui/page";
 import { useRouteTitle } from "@/shared/routes/title";
 
@@ -14,6 +14,6 @@ export const Route = createFileRoute("/(guest)/forgot-password")({
     );
   },
   validateSearch: z.object({
-    email: z.email().optional(),
+    email: z.optional(z.email()),
   }),
 });

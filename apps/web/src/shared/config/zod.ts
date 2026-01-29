@@ -1,5 +1,5 @@
 import type { i18n } from "i18next";
-import z from "zod";
+import * as z from "zod/mini";
 
 export const zodConfig = (i18n: i18n) =>
   z.config({

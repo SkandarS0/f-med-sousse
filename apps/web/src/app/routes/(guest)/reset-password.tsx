@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import z from "zod";
+import * as z from "zod/mini";
 import { ResetPasswordPage } from "@/pages/reset-password/ui/page";
 import { useRouteTitle } from "@/shared/routes/title";
 import { Button } from "@/shared/ui/primitives/button";

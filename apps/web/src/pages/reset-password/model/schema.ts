@@ -1,14 +1,14 @@
-import z from "zod";
+import * as z from "zod/mini";
 
 export const resetPasswordFormSchema = z.object({
   email: z.email(),
   password: z
     .string()
-    .min(8)
-    .regex(/[A-Z]/)
-    .regex(/[a-z]/)
-    .regex(/[0-9]/)
-    .regex(/[\W_]/),
+    .check(z.minLength(8))
+    .check(z.regex(/[A-Z]/))
+    .check(z.regex(/[a-z]/))
+    .check(z.regex(/[0-9]/))
+    .check(z.regex(/[\W_]/)),
   password_confirmation: z.string(),
 });
 
