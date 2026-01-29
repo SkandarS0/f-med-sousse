@@ -25,6 +25,13 @@
         "cwd": "{projectRoot}"
       }
     },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "php artisan serve --env=production",
+        "cwd": "{projectRoot}"
+      }
+    },
     "test": {
       "executor": "nx:run-commands",
       "cache": true,
