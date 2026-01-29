@@ -63,7 +63,7 @@ export function LoginForm() {
             label={t("user.actions.login")}
             error={loginMutation.error}
           />
-          <Button variant={"outline"} size={"sm"}>
+          <Button variant={"link"} size={"sm"}>
             <Link to="/forgot-password" preload="intent">
               {t("pages:login.components.form.forgotPassword")}
             </Link>
