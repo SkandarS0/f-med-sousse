@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import z from "zod";
-import { ForgotPasswordPage } from "@/pages";
+import { ForgotPasswordPage } from "@/pages/forgot-password/ui/page";
 import { useRouteTitle } from "@/shared/routes/title";
 
 export const Route = createFileRoute("/(guest)/forgot-password")({
