@@ -10,7 +10,7 @@ import { loginFormSchema } from "../model/schemas";
 const loginRouteApi = getRouteApi("/(guest)/login");
 
 export function LoginForm() {
-  const { t } = useTranslation("models");
+  const { t } = useTranslation(["models", "pages"]);
   const loginMutation = useAuthLogin();
   const router = useRouter();
   const loginRouteSearch = loginRouteApi.useSearch();
@@ -57,7 +57,7 @@ export function LoginForm() {
           />
           <Button variant={"outline"} size={"sm"}>
             <Link to="/forgot-password" preload="intent">
-              {t("user.questions.forgotPassword")}
+              {t("pages:login.components.form.forgotPassword")}
             </Link>
           </Button>
         </form.AppForm>

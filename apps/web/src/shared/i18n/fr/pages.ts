@@ -6,6 +6,9 @@ export default {
         description:
           "Entrez votre email et votre mot de passe pour accéder à votre portail.",
       },
+      form: {
+        forgotPassword: "Mot de passe oublié ?",
+      }
     },
   },
   "forgot-password": {

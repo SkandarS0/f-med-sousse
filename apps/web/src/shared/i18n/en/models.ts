@@ -12,8 +12,5 @@ export default {
       logout: "Log out",
       send_link: "Send link",
     },
-    questions: {
-      forgotPassword: "Forgot your password?",
-    },
   },
 };

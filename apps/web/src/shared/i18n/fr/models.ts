@@ -11,9 +11,6 @@ export default {
       login: "Se connecter",
       logout: "Se déconnecter",
       send_link: "Envoyer le lien",
-    },
-    questions: {
-      forgotPassword: "Mot de passe oublié ?",
-    },
+    }
   },
 };
