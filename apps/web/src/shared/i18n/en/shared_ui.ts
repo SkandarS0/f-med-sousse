@@ -12,4 +12,9 @@ export default {
   "language-toggle": {
     label: "Language",
   },
+  "common": {
+    "form": {
+      "reset": "Reset",
+    },
+  },
 };
