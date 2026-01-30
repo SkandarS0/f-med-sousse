@@ -25,7 +25,7 @@ export function LoginForm() {
     },
     onSubmit: async ({ value }) => {
       await loginMutation.mutateAsync(value);
-      router.navigate({
+      await router.navigate({
         to: loginRouteSearch.redirectTo ?? "/portal",
       });
     },

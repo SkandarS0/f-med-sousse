@@ -6,8 +6,8 @@ import { fortifyConfig } from "@/shared/config/fortify.ts";
 export function useAuthLogout() {
   return useMutation({
     mutationFn: () => logoutRequest(),
-    onSuccess(_data, _variables, _onMutateResult, context) {
-      context.client.resetQueries(userQueries.xGet());
+    async onSuccess(_data, _variables, _onMutateResult, context) {
+      await context.client.resetQueries(userQueries.xGet());
     },
   });
 }

@@ -26,11 +26,11 @@ const variants = {
 
 export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
   const { i18n } = useTranslation();
-  const handleLanguageChange = (lang: SupportedLng) => {
+  const handleLanguageChange = async (lang: SupportedLng) => {
     if (lang === i18n.language) {
       return;
     }
-    i18n.changeLanguage(lang);
+    await i18n.changeLanguage(lang);
   };
 
   const Component = variants[as];

@@ -16,8 +16,8 @@ function RouteComponent() {
   const router = useRouter();
   const handleLogout = async () => {
     await logoutMutation.mutateAsync();
-    router.invalidate();
-    router.navigate({ to: "/login", replace: true });
+    await router.invalidate();
+    await router.navigate({ to: "/login", replace: true });
   };
   return (
     <div className="text-center">

@@ -11,8 +11,8 @@ type LoginResponseBody = { two_factor: boolean };
 export function useAuthLogin() {
   return useMutation({
     mutationFn: (data: LoginFormSchema) => loginRequest(data),
-    onSuccess(_data, _variables, _onMutateResult, context) {
-      context.client.refetchQueries(userQueries.xGet());
+    async onSuccess(_data, _variables, _onMutateResult, context) {
+      await context.client.refetchQueries(userQueries.xGet());
     },
   });
 }
