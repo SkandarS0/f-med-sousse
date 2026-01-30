@@ -1,9 +1,9 @@
-import type { SupportedLng } from "@/shared/i18n/i18next.ts";
+import type { SupportedLanguage } from "@/shared/i18n/i18next.ts";
 
 export const getUserInitials = (
   firstName: string,
   lastName: string,
-  language?: SupportedLng,
+  language?: SupportedLanguage,
 ) => {
   const firstInitial = firstName ? firstName.charAt(0).toUpperCase() : "";
   const lastInitial = lastName ? lastName.charAt(0).toUpperCase() : "";
@@ -15,7 +15,7 @@ export const getUserInitials = (
 export const getUserFullName = (
   firstName: string,
   lastName: string,
-  language?: SupportedLng,
+  language?: SupportedLanguage,
 ) => {
   return language === "fr"
     ? `${lastName} ${firstName}`

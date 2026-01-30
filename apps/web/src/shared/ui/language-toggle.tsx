@@ -1,7 +1,7 @@
 import { IconLanguage } from "@tabler/icons-react";
 import { cva } from "class-variance-authority";
 import { useTranslation } from "react-i18next";
-import type { SupportedLng } from "@/shared/i18n/i18next.ts";
+import type { SupportedLanguage } from "@/shared/i18n/i18next.ts";
 import { Button } from "@/shared/ui/primitives/button.tsx";
 import {
   DropdownMenu,
@@ -26,7 +26,7 @@ const variants = {
 
 export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
   const { i18n } = useTranslation();
-  const handleLanguageChange = async (lang: SupportedLng) => {
+  const handleLanguageChange = async (lang: SupportedLanguage) => {
     if (lang === i18n.language) {
       return;
     }
@@ -36,15 +36,15 @@ export function LanguageToggle({ as = "dropdown-menu" }: LanguageToggleProps) {
   const Component = variants[as];
   return (
     <Component
-      language={i18n.language as SupportedLng}
+      language={i18n.language as SupportedLanguage}
       handleLanguageChange={handleLanguageChange}
     />
   );
 }
 
 type LanguageToggleComponentProps = {
-  language: SupportedLng;
-  handleLanguageChange: (lang: SupportedLng) => void;
+  language: SupportedLanguage;
+  handleLanguageChange: (lang: SupportedLanguage) => void;
 };
 
 function DropdownMenuLanguageToggle({

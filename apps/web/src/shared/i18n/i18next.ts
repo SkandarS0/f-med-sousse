@@ -37,7 +37,7 @@ export const resources = {
 
 export const supportedLanguages = ["fr", "en"] as const;
 
-export type SupportedLng = (typeof supportedLanguages)[number];
+export type SupportedLanguage = (typeof supportedLanguages)[number];
 
 export const i18nextInstance = i18next
   .createInstance({
