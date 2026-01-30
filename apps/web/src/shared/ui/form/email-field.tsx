@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { useFieldContext } from "@/shared/lib/form.ts";
 import { BaseFormField } from "@/shared/ui/form/base-field.tsx";
 import { Input } from "@/shared/ui/primitives/input.tsx";

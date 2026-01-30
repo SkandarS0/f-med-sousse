@@ -1,5 +1,6 @@
 import { IconLoader3 } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
+import type * as React from "react";
 import { userQueries } from "@/entities/user/api/query.ts";
 import { AuthContext } from "@/features/auth/lib/auth-context.ts";
 

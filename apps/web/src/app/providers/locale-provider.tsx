@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { I18nextProvider } from "react-i18next";
 import { i18nextInstance } from "@/shared/i18n/i18next.ts";
 

@@ -1,3 +1,5 @@
+import type * as React from "react";
+
 type FormProps = {
   children: React.ReactNode;
   handleSubmit: () => void;
