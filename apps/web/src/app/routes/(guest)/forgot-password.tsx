@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import * as z from "zod/mini";
-import { ForgotPasswordPage } from "@/pages/forgot-password/ui/page";
-import { useRouteTitle } from "@/shared/routes/title";
+import { ForgotPasswordPage } from "@/pages/forgot-password/ui/page.tsx";
+import { useRouteTitle } from "@/shared/routes/title.ts";
 
 export const Route = createFileRoute("/(guest)/forgot-password")({
   component: function RouteComponent() {

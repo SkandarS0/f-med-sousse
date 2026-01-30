@@ -1,19 +1,19 @@
 import i18next from "i18next";
 import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
-import { zodConfig } from "../config/zod";
-import enMessages from "./en/messages";
-import enModels from "./en/models";
-import enPages from "./en/pages";
-import enRoutes from "./en/routes";
-import enSharedUi from "./en/shared_ui";
-import enValidation from "./en/validation";
-import frMessages from "./fr/messages";
-import frModels from "./fr/models";
-import frPages from "./fr/pages";
-import frRoutes from "./fr/routes";
-import frSharedUi from "./fr/shared_ui";
-import frValidation from "./fr/validation";
+import { zodConfig } from "@/shared/config/zod.ts";
+import enMessages from "@/shared/i18n/en/messages.ts";
+import enModels from "@/shared/i18n/en/models.ts";
+import enPages from "@/shared/i18n/en/pages.ts";
+import enRoutes from "@/shared/i18n/en/routes.ts";
+import enSharedUi from "@/shared/i18n/en/shared_ui.ts";
+import enValidation from "@/shared/i18n/en/validation.ts";
+import frMessages from "@/shared/i18n/fr/messages.ts";
+import frModels from "@/shared/i18n/fr/models.ts";
+import frPages from "@/shared/i18n/fr/pages.ts";
+import frRoutes from "@/shared/i18n/fr/routes.ts";
+import frSharedUi from "@/shared/i18n/fr/shared_ui.ts";
+import frValidation from "@/shared/i18n/fr/validation.ts";
 
 export const defaultNS = "messages";
 export const resources = {

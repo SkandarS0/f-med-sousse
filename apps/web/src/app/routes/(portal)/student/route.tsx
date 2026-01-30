@@ -1,5 +1,5 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { UserType } from "@/entities/user/api/dto";
+import { UserType } from "@/entities/user/api/dto.ts";
 
 export const Route = createFileRoute("/(portal)/student")({
   beforeLoad: async ({ context }) => {

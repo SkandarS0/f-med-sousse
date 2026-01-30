@@ -6,8 +6,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/shared/ui/primitives/card";
-import { ResetPasswordForm } from "./form";
+} from "@/shared/ui/primitives/card.tsx";
+import { ResetPasswordForm } from "./form.tsx";
 
 const resetPasswordRoute = getRouteApi("/(guest)/reset-password");
 

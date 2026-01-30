@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { useAppForm } from "@/shared/lib/form";
-import { Form } from "@/shared/ui/form/wrapper";
-import { FieldGroup } from "@/shared/ui/primitives/field";
-import { useAuthForgotPassword } from "../api/mutation";
-import { forgotPasswordFormSchema } from "../model/schema";
+import { useAuthForgotPassword } from "@/pages/forgot-password/api/mutation.ts";
+import { forgotPasswordFormSchema } from "@/pages/forgot-password/model/schema.ts";
+import { useAppForm } from "@/shared/lib/form.ts";
+import { Form } from "@/shared/ui/form/wrapper.tsx";
+import { FieldGroup } from "@/shared/ui/primitives/field.tsx";
 
 export function ForgotPasswordForm() {
   const { t } = useTranslation("models");

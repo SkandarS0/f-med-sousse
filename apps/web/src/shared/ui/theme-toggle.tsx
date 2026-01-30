@@ -1,7 +1,7 @@
 import { IconSunMoon } from "@tabler/icons-react";
 import { useTranslation } from "react-i18next";
-import { type Theme, useTheme } from "../lib/theme";
-import { Button } from "./primitives/button";
+import { type Theme, useTheme } from "@/shared/lib/theme.ts";
+import { Button } from "@/shared/ui/primitives/button.tsx";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,7 +10,7 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from "./primitives/dropdown-menu";
+} from "@/shared/ui/primitives/dropdown-menu.tsx";
 
 const variants = {
   "dropdown-menu": DropdownMenuThemeToggle,

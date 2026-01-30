@@ -1,9 +1,9 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useAuthLogout } from "@/features/auth/api/use-logout";
-import { useRouteTitle } from "@/shared/routes/title";
-import { LanguageToggle } from "@/shared/ui/language-toggle";
-import { Button } from "@/shared/ui/primitives/button";
+import { useAuthLogout } from "@/features/auth/api/use-logout.ts";
+import { useRouteTitle } from "@/shared/routes/title.ts";
+import { LanguageToggle } from "@/shared/ui/language-toggle.tsx";
+import { Button } from "@/shared/ui/primitives/button.tsx";
 
 // Route for demo purposes
 export const Route = createFileRoute("/portal")({

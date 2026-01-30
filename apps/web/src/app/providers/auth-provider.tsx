@@ -1,7 +1,7 @@
 import { IconLoader3 } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
-import { userQueries } from "@/entities/user/api/query";
-import { AuthContext } from "@/features/auth/lib/auth-context";
+import { userQueries } from "@/entities/user/api/query.ts";
+import { AuthContext } from "@/features/auth/lib/auth-context.ts";
 
 type AuthProviderProps = {
   children: React.ReactNode;

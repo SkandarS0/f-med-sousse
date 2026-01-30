@@ -4,8 +4,8 @@ import {
   HeadContent,
   Outlet,
 } from "@tanstack/react-router";
-import { TanstackDevToolsIntegration } from "@/app/ui/tanstack-devtools";
-import type { AuthContextType } from "@/features/auth/lib/auth-context";
+import { TanstackDevToolsIntegration } from "@/app/ui/tanstack-devtools.tsx";
+import type { AuthContextType } from "@/features/auth/lib/auth-context.ts";
 
 interface AppRouterContext {
   queryClient: QueryClient;

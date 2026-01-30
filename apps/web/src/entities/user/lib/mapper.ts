@@ -1,5 +1,5 @@
-import type { ApiUser } from "../api/dto";
-import type { User } from "../model/dto";
+import type { ApiUser } from "@/entities/user/api/dto.ts";
+import type { User } from "@/entities/user/model/dto.ts";
 
 const userMapper = {
   toApi: (user: User): ApiUser => ({

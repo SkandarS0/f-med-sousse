@@ -1,11 +1,11 @@
 import { IconLoader2 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import type { ApiErrorResponse } from "@/shared/api/axios";
-import { useFormContext } from "@/shared/lib/form";
-import { FadeMessage } from "@/shared/ui/fade-message";
-import { Button } from "../primitives/button";
-import { Separator } from "../primitives/separator";
+import type { ApiErrorResponse } from "@/shared/api/axios.ts";
+import { useFormContext } from "@/shared/lib/form.ts";
+import { FadeMessage } from "@/shared/ui/fade-message.tsx";
+import { Button } from "@/shared/ui/primitives/button.tsx";
+import { Separator } from "@/shared/ui/primitives/separator.tsx";
 
 type SubmitButtonProps = {
   label: string;

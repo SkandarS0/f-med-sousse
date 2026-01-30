@@ -1,9 +1,9 @@
-type FormPros = {
+type FormProps = {
   children: React.ReactNode;
   handleSubmit: () => void;
 };
 
-export function Form({ children, handleSubmit }: FormPros) {
+export function Form({ children, handleSubmit }: FormProps) {
   return (
     <form
       noValidate

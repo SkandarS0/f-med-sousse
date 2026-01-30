@@ -1,6 +1,6 @@
-import { useFieldContext } from "@/shared/lib/form";
-import { Input } from "../primitives/input";
-import { BaseFormField } from "./base-field";
+import { useFieldContext } from "@/shared/lib/form.ts";
+import { BaseFormField } from "@/shared/ui/form/base-field.tsx";
+import { Input } from "@/shared/ui/primitives/input.tsx";
 
 type EmailFormFieldProps = {
   label?: string;

@@ -1,5 +1,5 @@
 import * as z from "zod/mini";
-import { ApiUser } from "../api/dto";
+import { ApiUser } from "@/entities/user/api/dto.ts";
 
 export const User = z.extend(
   z.omit(ApiUser, {

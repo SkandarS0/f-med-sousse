@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
-import { userQueries } from "@/entities/user/api/query";
-import { api, getCsrfCookie } from "@/shared/api/axios";
-import { fortifyConfig } from "@/shared/config/fortify";
-import type { LoginFormSchema } from "../model/schemas";
+import { userQueries } from "@/entities/user/api/query.ts";
+import type { LoginFormSchema } from "@/features/auth/model/schemas.ts";
+import { api, getCsrfCookie } from "@/shared/api/axios.ts";
+import { fortifyConfig } from "@/shared/config/fortify.ts";
 
 type LoginRequestBody = LoginFormSchema;
 

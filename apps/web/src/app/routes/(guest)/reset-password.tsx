@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import * as z from "zod/mini";
-import { ResetPasswordPage } from "@/pages/reset-password/ui/page";
-import { useRouteTitle } from "@/shared/routes/title";
-import { Button } from "@/shared/ui/primitives/button";
+import { ResetPasswordPage } from "@/pages/reset-password/ui/page.tsx";
+import { useRouteTitle } from "@/shared/routes/title.ts";
+import { Button } from "@/shared/ui/primitives/button.tsx";
 
 const searchSchema = z.object({
   email: z.email(),

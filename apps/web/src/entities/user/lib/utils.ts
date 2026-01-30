@@ -1,4 +1,4 @@
-import type { SupportedLng } from "@/shared/i18n/i18next";
+import type { SupportedLng } from "@/shared/i18n/i18next.ts";
 
 export const getUserInitials = (
   firstName: string,

@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import "../styles/tailwind.css";
+import "@/app/styles/tailwind.css";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "@/shared/api/query-client";
-import reportWebVitals from "@/shared/lib/web-vitals";
-import { AuthProvider } from "../providers/auth-provider";
-import { LocaleProvider } from "../providers/locale-provider";
-import { AppRouterProvider } from "../providers/router-provider";
+import { AuthProvider } from "@/app/providers/auth-provider.tsx";
+import { LocaleProvider } from "@/app/providers/locale-provider.tsx";
+import { AppRouterProvider } from "@/app/providers/router-provider.tsx";
+import { queryClient } from "@/shared/api/query-client.ts";
+import reportWebVitals from "@/shared/lib/web-vitals.ts";
 
 // Render the app
 const rootElement = document.getElementById("app");

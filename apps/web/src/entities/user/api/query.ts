@@ -1,7 +1,7 @@
 import { queryOptions } from "@tanstack/react-query";
-import { api } from "@/shared/api/axios";
-import { userMapper } from "../lib/mapper";
-import type { ApiUser } from "./dto";
+import type { ApiUser } from "@/entities/user/api/dto.ts";
+import { userMapper } from "@/entities/user/lib/mapper.ts";
+import { api } from "@/shared/api/axios.ts";
 
 export const userQueries = {
   get: () => ["user"] as const,

@@ -1,7 +1,8 @@
 import { IconLanguage } from "@tabler/icons-react";
 import { cva } from "class-variance-authority";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/shared/ui/primitives/button";
+import type { SupportedLng } from "@/shared/i18n/i18next.ts";
+import { Button } from "@/shared/ui/primitives/button.tsx";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,9 +11,8 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from "@/shared/ui/primitives/dropdown-menu";
-import { Separator } from "@/shared/ui/primitives/separator";
-import type { SupportedLng } from "../i18n/i18next";
+} from "@/shared/ui/primitives/dropdown-menu.tsx";
+import { Separator } from "@/shared/ui/primitives/separator.tsx";
 
 type LanguageToggleProps = {
   as?: "menu-item" | "dropdown-menu" | "links";

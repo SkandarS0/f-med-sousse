@@ -1,10 +1,10 @@
 import { useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useAppForm } from "@/shared/lib/form";
-import { Form } from "@/shared/ui/form/wrapper";
-import { FieldGroup } from "@/shared/ui/primitives/field";
-import { useAuthResetPassword } from "../api/mutation";
-import { resetPasswordFormSchema } from "../model/schema";
+import { useAuthResetPassword } from "@/pages/reset-password/api/mutation.ts";
+import { resetPasswordFormSchema } from "@/pages/reset-password/model/schema.ts";
+import { useAppForm } from "@/shared/lib/form.ts";
+import { Form } from "@/shared/ui/form/wrapper.tsx";
+import { FieldGroup } from "@/shared/ui/primitives/field.tsx";
 
 export function ResetPasswordForm({
   email,

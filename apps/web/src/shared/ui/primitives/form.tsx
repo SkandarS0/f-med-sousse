@@ -10,7 +10,7 @@ import {
 } from "@base-ui/react/fieldset";
 import { cva, type VariantProps } from "class-variance-authority";
 import type * as z from "zod/mini";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/utils.ts";
 
 const formFieldVariants = cva(
   "data-[invalid]:text-destructive gap-2 group/field flex w-full",

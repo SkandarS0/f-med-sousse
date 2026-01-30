@@ -1,5 +1,5 @@
 import * as z from "zod/mini";
-import { supportedLngs } from "@/shared/i18n/i18next";
+import { supportedLngs } from "@/shared/i18n/i18next.ts";
 
 export enum UserType {
   ADMIN = "admin",

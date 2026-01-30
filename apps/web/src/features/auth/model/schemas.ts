@@ -1,5 +1,5 @@
 import * as z from "zod/mini";
-import { User } from "@/entities/user/model/dto";
+import { User } from "@/entities/user/model/dto.ts";
 
 export const LoginFormSchema = z.extend(
   z.pick(User, {

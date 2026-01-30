@@ -1,11 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
-import { api, getCsrfCookie } from "@/shared/api/axios";
-import type { ResetPasswordFormSchema } from "../model/schema";
 import type {
   ResetPasswordRequestBody,
   ResetPasswordResponseBody,
-} from "./dto";
-import { fortifyConfig } from "@/shared/config/fortify";
+} from "@/pages/reset-password/api/dto.ts";
+import type { ResetPasswordFormSchema } from "@/pages/reset-password/model/schema.ts";
+import { api, getCsrfCookie } from "@/shared/api/axios.ts";
+import { fortifyConfig } from "@/shared/config/fortify.ts";
 
 export function useAuthResetPassword() {
   return useMutation({
@@ -18,6 +18,9 @@ export function useAuthResetPassword() {
 
 async function resetPasswordRequest(data: ResetPasswordRequestBody) {
   return await getCsrfCookie().then(() =>
-    api.post<ResetPasswordResponseBody>(fortifyConfig.prefix("/reset-password"), data),
+    api.post<ResetPasswordResponseBody>(
+      fortifyConfig.prefix("/reset-password"),
+      data,
+    ),
   );
 }

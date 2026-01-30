@@ -1,6 +1,13 @@
 import { useFieldContext } from "@/shared/lib/form";
-import { FieldContent, FieldDescription } from "../primitives/field";
-import { FormField, FormFieldErrors, FormFieldLabel } from "../primitives/form";
+import {
+  FieldContent,
+  FieldDescription,
+} from "@/shared/ui/primitives/field.tsx";
+import {
+  FormField,
+  FormFieldErrors,
+  FormFieldLabel,
+} from "@/shared/ui/primitives/form.tsx";
 
 export type CommonFormFieldProps = {
   label: string;
@@ -11,6 +18,7 @@ type BaseFormFieldProps = {
   orientation?: "vertical" | "horizontal" | "responsive";
   children: React.ReactNode;
 };
+
 export function BaseFormField({
   children,
   label,

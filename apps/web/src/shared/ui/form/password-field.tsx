@@ -1,14 +1,14 @@
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import { type InputHTMLAttributes, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useFieldContext } from "@/shared/lib/form";
+import { useFieldContext } from "@/shared/lib/form.ts";
+import { BaseFormField } from "@/shared/ui/form/base-field.tsx";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "../primitives/input-group";
-import { BaseFormField } from "./base-field";
+} from "@/shared/ui/primitives/input-group.tsx";
 
 type PasswordFormFieldProps = {
   label?: string;

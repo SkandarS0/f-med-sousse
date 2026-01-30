@@ -1,5 +1,5 @@
 import { RouterProvider } from "@tanstack/react-router";
-import { useRouterInstance } from "@/shared/config/tanstack-router";
+import { useRouterInstance } from "@/shared/config/tanstack-router.ts";
 
 export function AppRouterProvider() {
   const router = useRouterInstance();
