@@ -35,9 +35,9 @@ export const resources = {
   },
 } as const;
 
-export const supportedLngs = ["fr", "en"] as const;
+export const supportedLanguages = ["fr", "en"] as const;
 
-export type SupportedLng = (typeof supportedLngs)[number];
+export type SupportedLng = (typeof supportedLanguages)[number];
 
 export const i18nextInstance = i18next
   .createInstance({
@@ -53,7 +53,7 @@ export const i18nextInstance = i18next
       },
     },
     fallbackLng: "fr",
-    supportedLngs: supportedLngs,
+    supportedLngs: supportedLanguages,
     interpolation: {
       escapeValue: false,
     },

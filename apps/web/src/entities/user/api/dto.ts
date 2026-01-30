@@ -1,5 +1,5 @@
 import * as z from "zod/mini";
-import { supportedLngs } from "@/shared/i18n/i18next.ts";
+import { supportedLanguages } from "@/shared/i18n/i18next.ts";
 
 export enum UserType {
   ADMIN = "admin",
@@ -13,7 +13,7 @@ export const ApiUser = z.object({
   email: z.email(),
   email_verified_at: z.nullable(z.iso.datetime()),
   type: z.enum(UserType),
-  locale: z.enum(supportedLngs),
+  locale: z.enum(supportedLanguages),
   created_at: z.iso.datetime(),
   updated_at: z.nullable(z.iso.datetime()),
 });
