@@ -1,11 +1,11 @@
-const fortifyEndoint = {
+const fortifyEndpoint = {
   login: "/login",
   logout: "/logout",
   forgotPassword: "/forgot-password",
   resetPassword: "/reset-password",
 } as const;
 
-type FortifyEndpoint = (typeof fortifyEndoint)[keyof typeof fortifyEndoint];
+type FortifyEndpoint = (typeof fortifyEndpoint)[keyof typeof fortifyEndpoint];
 
 export const fortifyConfig = {
   prefix: (endpoint: FortifyEndpoint) => `/auth${endpoint}`,
