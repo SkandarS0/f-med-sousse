@@ -60,7 +60,7 @@ export const i18nextInstance = i18next
     react: {
       useSuspense: true,
     },
-    defaultNS: "messages",
+    defaultNS,
     resources,
   })
   .use(I18nextBrowserLanguageDetector)
