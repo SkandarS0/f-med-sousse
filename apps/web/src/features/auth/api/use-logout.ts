@@ -13,5 +13,5 @@ export function useAuthLogout() {
 
 async function logoutRequest() {
   await getCsrfCookie();
-  return await api.post("/api/auth/logout");
+  return await api.post("/auth/logout");
 }

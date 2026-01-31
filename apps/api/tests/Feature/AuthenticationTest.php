@@ -10,7 +10,7 @@ test('a user can log in with valid credentials', function () {
         'password' => Hash::make($password),
     ]);
 
-    $response = postJson('/api/auth/login', [
+    $response = postJson('/auth/login', [
         'email' => $user->email,
         'password' => $password,
     ]);
@@ -23,7 +23,7 @@ test('a user cannot log in with invalid credentials', function () {
         'password' => Hash::make($password),
     ]);
 
-    $response = postJson('/api/auth/login', [
+    $response = postJson('/auth/login', [
         'email' => $user->email,
         'password' => 'wrongpassword',
     ]);
