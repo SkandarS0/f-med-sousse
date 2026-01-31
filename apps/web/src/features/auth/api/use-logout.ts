@@ -1,7 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { userQueries } from "@/entities/user/api/query.ts";
 import { api, getCsrfCookie } from "@/shared/api/axios.ts";
-import { fortifyConfig } from "@/shared/config/fortify.ts";
 
 export function useAuthLogout() {
   return useMutation({
@@ -14,5 +13,5 @@ export function useAuthLogout() {
 
 async function logoutRequest() {
   await getCsrfCookie();
-  return await api.post(fortifyConfig.prefix("/logout"));
+  return await api.post("/api/auth/logout");
 }
