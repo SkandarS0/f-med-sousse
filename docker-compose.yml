@@ -10,5 +10,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+  mailpit:
+    image: axllent/mailpit:v1.28
+    volumes:
+      - mailpit_data:/data
+    ports:
+      - "8025:8025"
+      - "1025:1025"
 volumes:
   valkey_data:
+    driver: local
+  mailpit_data:
+    driver: local
