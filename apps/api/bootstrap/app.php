@@ -15,9 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->statefulApi()->prepend([
             LocaleMiddleware::class,
-        ])->api([
-            SetUserLocaleMiddleware::class,
-        ])->encryptCookies([
+        ])->encryptCookies(except: [
             'i18next',
         ]);
     })
