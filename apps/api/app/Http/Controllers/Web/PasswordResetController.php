@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\WebController;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\SendPasswordResetLinkRequest;
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset as PasswordResetEvent;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 
 class PasswordResetController extends WebController
 {
@@ -21,5 +26,29 @@ class PasswordResetController extends WebController
         }
 
         return $this->ok(['message' => __('passwords.sent')]);
+    }
+
+    public function reset(ResetPasswordRequest $request)
+    {
+        $validated = $request->validated();
+
+        $status = Password::reset(
+            $validated,
+            function (User $user, string $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password),
+                ])->setRememberToken(Str::random(60));
+
+                $user->save();
+
+                event(new PasswordResetEvent($user));
+            }
+        );
+
+        if ($status !== Password::PASSWORD_RESET) {
+            return $this->unprocessableEntity(['message' => __($status)]);
+        }
+
+        return $this->ok(['message' => __('passwords.reset')]);
     }
 }

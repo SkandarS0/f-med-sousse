@@ -8,4 +8,5 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
     Route::post('/logout', [AuthenticatedSessionController::class, 'logout'])->name('logout');
     Route::post('/forgot-password', [PasswordResetController::class, 'requestLink'])->name('password.forgot');
+    Route::post('/reset-password', [PasswordResetController::class, 'reset'])->name('password.reset');
 });
