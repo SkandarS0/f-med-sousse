@@ -20,7 +20,7 @@
 
 ## apps/api:
 
-Laravel project, using sanctum, session based authentication.
+Laravel project, using sanctum, session-based authentication.
 
 ## apps/web:
 
