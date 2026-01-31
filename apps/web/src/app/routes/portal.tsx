@@ -1,8 +1,8 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { useAuthLogout } from "@/features/auth/api/use-logout.ts";
+import { LanguageToggle } from "@/features/change-language/ui/toggle.tsx";
 import { useRouteTitle } from "@/shared/routes/title.ts";
-import { LanguageToggle } from "@/shared/ui/language-toggle.tsx";
 import { Button } from "@/shared/ui/primitives/button.tsx";
 
 // Route for demo purposes
@@ -21,7 +21,8 @@ function RouteComponent() {
   };
   return (
     <div className="text-center">
-      <header className="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
+      <header
+        className="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
         <title>{title}</title>
         <p>
           Edit <code>src/routes/index.tsx</code> and save to reload.
@@ -42,6 +43,7 @@ function RouteComponent() {
     </div>
   );
 }
+
 function HelloComponent() {
   const { t } = useTranslation();
   return <h1 className="text-3xl font-bold">{t("hello_world")}</h1>;

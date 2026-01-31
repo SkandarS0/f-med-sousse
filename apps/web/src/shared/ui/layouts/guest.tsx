@@ -1,8 +1,8 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Activity } from "react";
 import { useTranslation } from "react-i18next";
+import { LanguageToggle } from "@/features/change-language/ui/toggle.tsx";
 import { AppLogo } from "@/shared/ui/app-logo.tsx";
-import { LanguageToggle } from "@/shared/ui/language-toggle.tsx";
 import { Button } from "@/shared/ui/primitives/button.tsx";
 
 export function GuestLayout() {
