@@ -6,7 +6,7 @@ import { Form } from "@/shared/ui/form/wrapper.tsx";
 import { FieldGroup } from "@/shared/ui/primitives/field.tsx";
 
 export function ForgotPasswordForm() {
-  const { t } = useTranslation("models");
+  const { t } = useTranslation(["models", "pages"]);
   const forgotPasswordMutation = useAuthForgotPassword();
   const form = useAppForm({
     defaultValues: { email: "" },
@@ -32,7 +32,7 @@ export function ForgotPasswordForm() {
           </form.AppField>
 
           <form.SubmitButton
-            label={t("user.actions.send_link")}
+            label={t("pages:forgot-password.components.form.submit")}
             error={forgotPasswordMutation.error}
             success={forgotPasswordMutation.data?.message}
           />

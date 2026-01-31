@@ -13,7 +13,7 @@ export function ResetPasswordForm({
   email: string;
   token: string;
 }) {
-  const { t } = useTranslation("models");
+  const { t } = useTranslation(["models", "pages"]);
   const resetPasswordMutation = useAuthResetPassword();
   const router = useRouter();
   const form = useAppForm({
@@ -58,7 +58,7 @@ export function ResetPasswordForm({
             )}
           </form.AppField>
           <form.SubmitButton
-            label={t("user.actions.send_link")}
+            label={t("pages:reset-password.components.form.submit")}
             error={resetPasswordMutation.error}
             success={resetPasswordMutation.data?.message}
             withReset

@@ -17,6 +17,9 @@ export default {
         title: "Recover your password",
         description: "Enter your email and we’ll send you a reset link.",
       },
+      form: {
+        submit: "Send reset link",
+      },
     },
   },
   "reset-password": {
@@ -24,6 +27,9 @@ export default {
       card: {
         title: "Choose a new password",
         description: "Enter and confirm your new password.",
+      },
+      form: {
+        submit: "Reset password",
       },
     },
     error: {

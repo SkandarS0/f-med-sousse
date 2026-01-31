@@ -10,7 +10,6 @@ export default {
     actions: {
       login: "Se connecter",
       logout: "Se déconnecter",
-      send_link: "Envoyer le lien",
-    }
+    },
   },
 };

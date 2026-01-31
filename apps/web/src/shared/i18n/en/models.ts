@@ -10,7 +10,6 @@ export default {
     actions: {
       login: "Log in",
       logout: "Log out",
-      send_link: "Send link",
     },
   },
 };

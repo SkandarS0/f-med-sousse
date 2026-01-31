@@ -19,6 +19,9 @@ export default {
         description:
           "Entrez votre email et nous vous enverrons un lien de réinitialisation.",
       },
+      form: {
+        submit: "Envoyer le lien",
+      },
     },
   },
   "reset-password": {
@@ -26,6 +29,9 @@ export default {
       card: {
         title: "Choisissez un nouveau mot de passe",
         description: "Saisissez et confirmez votre nouveau mot de passe.",
+      },
+      form: {
+        submit: "Réinitialiser le mot de passe",
       },
     },
     error: {
