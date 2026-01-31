@@ -7,7 +7,7 @@ use App\Http\Requests\LoginWebRequest;
 use Auth;
 use Illuminate\Http\Request;
 
-class AuthController extends WebController
+class AuthenticatedSessionController extends WebController
 {
     public function login(LoginWebRequest $request)
     {
