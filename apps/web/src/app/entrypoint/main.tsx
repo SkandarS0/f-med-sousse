@@ -14,13 +14,13 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <LocaleProvider>
-        <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <LocaleProvider>
           <AuthProvider>
             <AppRouterProvider />
           </AuthProvider>
-        </QueryClientProvider>
-      </LocaleProvider>
+        </LocaleProvider>
+      </QueryClientProvider>
     </StrictMode>,
   );
 }
