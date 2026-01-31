@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Parental\HasChildren;
 
 class User extends Authenticatable implements HasLocalePreference
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use CanResetPassword, HasChildren, HasFactory, HasUuids, Notifiable;
+    use CanResetPassword, HasApiTokens, HasChildren, HasFactory, HasUuids, Notifiable;
 
     /**
      * The attributes that are mass assignable.
