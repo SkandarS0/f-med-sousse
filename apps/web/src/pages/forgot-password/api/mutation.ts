@@ -5,7 +5,6 @@ import type {
 } from "@/pages/forgot-password/api/dto.ts";
 import type { ForgotPasswordFormSchema } from "@/pages/forgot-password/model/schema.ts";
 import { api, getCsrfCookie } from "@/shared/api/axios.ts";
-import { fortifyConfig } from "@/shared/config/fortify.ts";
 
 export function useAuthForgotPassword() {
   return useMutation({
@@ -18,9 +17,6 @@ export function useAuthForgotPassword() {
 
 async function forgotPasswordRequest(data: ForgotPasswordRequestBody) {
   return await getCsrfCookie().then(() =>
-    api.post<ForgotPasswordResponseBody>(
-      fortifyConfig.prefix("/forgot-password"),
-      data,
-    ),
+    api.post<ForgotPasswordResponseBody>("/auth/forgot-password", data),
   );
 }
