@@ -11,6 +11,8 @@
   ],
   "require": {
     "php": "^8.5",
+    "ext-pdo": "*",
+    "ext-redis": "*",
     "laravel/framework": "^12.47",
     "laravel/sanctum": "^4.0",
     "tightenco/parental": "^1.5"
