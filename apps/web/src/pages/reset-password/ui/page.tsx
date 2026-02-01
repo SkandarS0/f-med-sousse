@@ -1,5 +1,6 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
+import { ResetPasswordForm } from "@/features/reset-password/ui/form.tsx";
 import {
   Card,
   CardContent,
@@ -7,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/ui/primitives/card.tsx";
-import { ResetPasswordForm } from "./form.tsx";
 
 const resetPasswordRoute = getRouteApi("/(guest)/reset-password");
 

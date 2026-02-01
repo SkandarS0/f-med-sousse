@@ -1,25 +1,22 @@
 import { useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useAuthResetPassword } from "@/pages/reset-password/api/mutation.ts";
-import { resetPasswordFormSchema } from "@/pages/reset-password/model/schema.ts";
+import { useResetPasswordMutation } from "@/features/reset-password/api/use-reset-password.ts";
+import {
+  ResetPasswordFormSchema,
+  type ResetPasswordSearchSchema,
+} from "@/features/reset-password/model/schema.ts";
 import { useAppForm } from "@/shared/lib/form.ts";
 import { Form } from "@/shared/ui/form/wrapper.tsx";
 import { FieldGroup } from "@/shared/ui/primitives/field.tsx";
 
-export function ResetPasswordForm({
-  email,
-  token,
-}: {
-  email: string;
-  token: string;
-}) {
+export function ResetPasswordForm({ email, token }: ResetPasswordSearchSchema) {
   const { t } = useTranslation(["models", "pages"]);
-  const resetPasswordMutation = useAuthResetPassword();
+  const resetPasswordMutation = useResetPasswordMutation();
   const router = useRouter();
   const form = useAppForm({
     defaultValues: { email, password: "", password_confirmation: "" },
     validators: {
-      onChange: resetPasswordFormSchema,
+      onChange: ResetPasswordFormSchema,
     },
     onSubmit: async ({ value }) => {
       await resetPasswordMutation.mutateAsync({ ...value, token });

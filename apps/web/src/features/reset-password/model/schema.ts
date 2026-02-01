@@ -1,6 +1,6 @@
 import * as z from "zod/mini";
 
-export const resetPasswordFormSchema = z.object({
+export const ResetPasswordFormSchema = z.object({
   email: z.email(),
   password: z
     .string()
@@ -13,7 +13,16 @@ export const resetPasswordFormSchema = z.object({
 });
 
 export type ResetPasswordFormSchema = z.infer<
-  typeof resetPasswordFormSchema
+  typeof ResetPasswordFormSchema
 > & {
   token: string;
 };
+
+export const ResetPasswordSearchSchema = z.object({
+  email: z.email(),
+  token: z.string(),
+});
+
+export type ResetPasswordSearchSchema = z.infer<
+  typeof ResetPasswordSearchSchema
+>;
