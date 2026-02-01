@@ -3,9 +3,11 @@ import {
   createRootRouteWithContext,
   HeadContent,
   Outlet,
+  useLocation,
 } from "@tanstack/react-router";
 import { TanstackDevToolsIntegration } from "@/app/ui/tanstack-devtools.tsx";
 import type { AuthContextType } from "@/features/auth/lib/auth-context.ts";
+import { useRouteTitle } from "@/shared/routes/title.ts";
 
 interface AppRouterContext {
   queryClient: QueryClient;
@@ -13,11 +15,16 @@ interface AppRouterContext {
 }
 
 export const Route = createRootRouteWithContext<AppRouterContext>()({
-  component: () => (
-    <>
-      <HeadContent />
-      <Outlet />
-      <TanstackDevToolsIntegration />
-    </>
-  ),
+  component: function RootComponent() {
+    const { pathname } = useLocation();
+    const title = useRouteTitle(pathname);
+    return (
+      <>
+        <HeadContent />
+        <title>{title}</title>
+        <Outlet />
+        <TanstackDevToolsIntegration />
+      </>
+    );
+  },
 });
