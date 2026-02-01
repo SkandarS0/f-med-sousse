@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 use function Pest\Laravel\postJson;
 
-test('a user can log in with valid credentials', function () {
+test('a user can log in with valid credentials', function (): void {
     $password = 'password123';
     $user = User::factory()->create([
         'password' => Hash::make($password),
@@ -17,7 +20,7 @@ test('a user can log in with valid credentials', function () {
     $response->assertSuccessful();
 });
 
-test('a user cannot log in with invalid credentials', function () {
+test('a user cannot log in with invalid credentials', function (): void {
     $password = 'password123';
     $user = User::factory()->create([
         'password' => Hash::make($password),

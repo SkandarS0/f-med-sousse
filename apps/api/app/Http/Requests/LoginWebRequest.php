@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginWebRequest extends FormRequest
+final class LoginWebRequest extends FormRequest
 {
     public function rules(): array
     {

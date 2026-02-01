@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
+use Database\Factories\UserFactory;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -13,7 +16,7 @@ use Parental\HasChildren;
 
 class User extends Authenticatable implements HasLocalePreference
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<UserFactory> */
     use CanResetPassword, HasApiTokens, HasChildren, HasFactory, HasUuids, Notifiable;
 
     /**
@@ -51,6 +54,11 @@ class User extends Authenticatable implements HasLocalePreference
         'remember_token',
     ];
 
+    final public function preferredLocale(): string
+    {
+        return $this->locale;
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -62,10 +70,5 @@ class User extends Authenticatable implements HasLocalePreference
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function preferredLocale(): string
-    {
-        return $this->locale;
     }
 }

@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\WebController;
 use App\Http\Requests\LoginWebRequest;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AuthenticatedSessionController extends WebController
+final class AuthenticatedSessionController extends WebController
 {
     public function login(LoginWebRequest $request)
     {

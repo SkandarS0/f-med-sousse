@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\WebController;
@@ -11,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
-class PasswordResetController extends WebController
+final class PasswordResetController extends WebController
 {
     public function requestLink(SendPasswordResetLinkRequest $request)
     {
@@ -34,7 +36,7 @@ class PasswordResetController extends WebController
 
         $status = Password::reset(
             $validated,
-            function (User $user, string $password) {
+            function (User $user, string $password): void {
                 $user->forceFill([
                     'password' => Hash::make($password),
                 ])->setRememberToken(Str::random(60));

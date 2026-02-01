@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Parental\HasParent;
 
-class Admin extends User
+final class Admin extends User
 {
     use HasParent;
 

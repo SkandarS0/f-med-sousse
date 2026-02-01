@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class WebController extends Controller
+abstract class WebController extends Controller
 {
     use HandlesAuthorization;
 
