@@ -34,8 +34,7 @@ export default {
     },
     error: {
       h1: "Invalid Password Reset Link",
-      p1: "This reset link is invalid or has expired.",
-      p2: "Please request a new one.",
+      p1: "This reset link is expired or malformed.",
       requestNewLink: "Request a new reset link",
       backToSignIn: "Return to sign in",
     },

@@ -36,8 +36,7 @@ export default {
     },
     error: {
       h1: "Lien de réinitialisation de mot de passe invalide",
-      p1: "Ce lien est invalide ou a expiré.",
-      p2: "Veuillez en demander un nouveau.",
+      p1: "Ce lien est expiré ou mal formé.",
       requestNewLink: "Demander un nouveau lien",
       backToSignIn: "Retour à la connexion",
     },
