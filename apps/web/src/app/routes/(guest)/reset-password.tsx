@@ -1,17 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import * as z from "zod/mini";
+import { resetPasswordVerifyToken as verifyToken } from "@/features/reset-password/lib/verify-token.ts";
+import { ResetPasswordSearchSchema } from "@/features/reset-password/model/schema.ts";
 import { ResetPasswordPage } from "@/pages/reset-password/ui/page.tsx";
 import { useRouteTitle } from "@/shared/routes/title.ts";
 import { Button } from "@/shared/ui/primitives/button.tsx";
 
-const searchSchema = z.object({
-  email: z.email(),
-  token: z.string(),
-});
-
 export const Route = createFileRoute("/(guest)/reset-password")({
-  validateSearch: searchSchema,
+  validateSearch: ResetPasswordSearchSchema,
+  beforeLoad: async ({ search }) => {
+    return verifyToken(search);
+  },
   component: function ResetPasswordRoute() {
     const title = useRouteTitle("/reset-password");
     return (

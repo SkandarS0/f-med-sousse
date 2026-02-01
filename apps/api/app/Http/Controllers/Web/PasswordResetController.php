@@ -9,6 +9,7 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\SendPasswordResetLinkRequest;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset as PasswordResetEvent;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
@@ -28,6 +29,22 @@ final class PasswordResetController extends WebController
         }
 
         return $this->ok(['message' => __('passwords.sent')]);
+    }
+
+    public function verify(Request $request)
+    {
+        $validated = $request->validate(['token' => 'required', 'email' => 'required|email']);
+        $userExists = User::where('email', $validated['email'])->exists();
+        if (! $userExists) {
+            return $this->unprocessableEntity(['message' => __('passwords.user')]);
+        }
+        $tokenExists = Password::broker()->tokenExists(User::where('email', $validated['email'])->first(), $validated['token']);
+
+        if (! $tokenExists) {
+            return $this->unprocessableEntity(['message' => __('passwords.token')]);
+        }
+
+        return $this->ok();
     }
 
     public function reset(ResetPasswordRequest $request)
