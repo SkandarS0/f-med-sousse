@@ -10,6 +10,14 @@ export function useRouterInstance() {
     routeTree,
     context: { queryClient, auth },
     scrollRestoration: true,
+    rewrite: {
+      input: ({ url }) => {
+        if (url.pathname === "/") {
+          url.pathname = "/login";
+        }
+        return url;
+      },
+    },
   });
 
   setupRouterSsrQueryIntegration({
