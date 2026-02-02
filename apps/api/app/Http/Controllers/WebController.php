@@ -19,7 +19,6 @@ abstract class WebController extends Controller
 
     protected function noContent()
     {
-
         return response()->noContent();
     }
 
