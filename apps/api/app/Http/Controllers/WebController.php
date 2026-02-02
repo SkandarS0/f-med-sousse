@@ -27,4 +27,14 @@ abstract class WebController extends Controller
     {
         return response()->json($body, Response::HTTP_UNPROCESSABLE_ENTITY);
     }
+
+    protected function unauthorized(mixed $body = [])
+    {
+        return response()->json($body, Response::HTTP_UNAUTHORIZED);
+    }
+
+    protected function forbidden(mixed $body = [])
+    {
+        return response()->json($body, Response::HTTP_FORBIDDEN);
+    }
 }
