@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class WebController extends Controller
 {
-    use HandlesAuthorization;
+    use AuthorizesRequests;
 
     protected function ok(mixed $data = [])
     {
@@ -19,6 +19,7 @@ abstract class WebController extends Controller
 
     protected function noContent()
     {
+
         return response()->noContent();
     }
 
