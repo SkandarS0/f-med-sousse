@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 
 final class AppServiceProvider extends ServiceProvider
@@ -27,9 +28,9 @@ final class AppServiceProvider extends ServiceProvider
     {
         JsonResource::withoutWrapping();
         ResetPassword::createUrlUsing(fn (User $user, string $token): string => env('FRONTEND_URL').'/reset-password?token='.$token.'&email='.urlencode($user->email));
-        Blueprint::macro('timestampsBy', function () {
-            $this->foreignIdFor(User::class, 'created_by')->nullable();
-            $this->foreignIdFor(User::class, 'updated_by')->nullable();
-        });
+        Blueprint::macro('timestampsBy', fn () => new Collection([
+            $this->foreignIdFor(User::class, 'created_by')->nullable(),
+            $this->foreignIdFor(User::class, 'updated_by')->nullable(),
+        ]));
     }
 }
