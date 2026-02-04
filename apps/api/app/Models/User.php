@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\UserTypes;
 use Database\Factories\UserFactory;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Translation\HasLocalePreference;
@@ -33,15 +34,15 @@ class User extends Authenticatable implements HasLocalePreference
         'locale',
     ];
 
-    protected string $childColumn = 'type';
-
     protected $attributes = [
         'locale' => 'fr',
     ];
 
+    protected string $childColumn = 'type';
+
     protected array $childTypes = [
-        'student' => Student::class,
-        'admin' => Admin::class,
+        UserTypes::Student->value => Student::class,
+        UserTypes::Admin->value => Admin::class,
     ];
 
     /**
