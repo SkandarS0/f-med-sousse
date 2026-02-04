@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\UserTypes;
+use App\Traits\HasTimestampsBy;
 use Database\Factories\UserFactory;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Translation\HasLocalePreference;
@@ -18,7 +19,7 @@ use Parental\HasChildren;
 class User extends Authenticatable implements HasLocalePreference
 {
     /** @use HasFactory<UserFactory> */
-    use CanResetPassword, HasApiTokens, HasChildren, HasFactory, HasUuids, Notifiable;
+    use CanResetPassword, HasApiTokens, HasChildren, HasFactory, HasTimestampsBy, HasUuids,  Notifiable;
 
     /**
      * The attributes that are mass assignable.
