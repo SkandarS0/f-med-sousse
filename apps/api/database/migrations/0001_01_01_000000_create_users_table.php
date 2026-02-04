@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('locale', config('app.supported_locales'));
             $table->rememberToken();
             $table->timestamps();
+            $table->timestampsBy();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table): void {
