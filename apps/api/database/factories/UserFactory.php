@@ -35,30 +35,38 @@ final class UserFactory extends Factory
             'locale' => fake()->randomElement(config('app.supported_locales')),
             'remember_token' => Str::random(10),
             'type' => 'student',
+            'created_by' => User::factory()->admin()->noCreator(),
         ];
+    }
+
+    public function noCreator(): self
+    {
+        return $this->state(fn (array $attributes): array => [
+            'created_by' => null,
+        ]);
+    }
+
+    public function admin(): self
+    {
+        return $this->state(fn (array $attributes): array => [
+            'type' => 'admin',
+        ]);
     }
 
     /**
      * Indicate that the model's email address should be unverified.
      */
-    public function unverified(): static
+    public function unverified(): self
     {
         return $this->state(fn (array $attributes): array => [
             'email_verified_at' => null,
         ]);
     }
 
-    public function student(): static
+    public function student(): self
     {
         return $this->state(fn (array $attributes): array => [
             'type' => 'student',
-        ]);
-    }
-
-    public function admin(): static
-    {
-        return $this->state(fn (array $attributes): array => [
-            'type' => 'admin',
         ]);
     }
 }

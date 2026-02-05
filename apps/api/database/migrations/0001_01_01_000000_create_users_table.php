@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->enum('locale', config('app.supported_locales'));
             $table->rememberToken();
             $table->timestamps();
-            $table->timestampsBy();
+            $table->foreignIdFor(User::class, 'created_by')->nullable();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table): void {

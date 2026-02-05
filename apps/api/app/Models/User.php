@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\UserTypes;
-use App\Traits\HasTimestampsBy;
 use Database\Factories\UserFactory;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -19,7 +19,7 @@ use Parental\HasChildren;
 class User extends Authenticatable implements HasLocalePreference
 {
     /** @use HasFactory<UserFactory> */
-    use CanResetPassword, HasApiTokens, HasChildren, HasFactory, HasTimestampsBy, HasUuids,  Notifiable;
+    use CanResetPassword, HasApiTokens, HasChildren, HasFactory, HasUuids,  Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -59,6 +59,11 @@ class User extends Authenticatable implements HasLocalePreference
     final public function preferredLocale(): string
     {
         return $this->locale;
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(self::class, 'created_by');
     }
 
     /**
