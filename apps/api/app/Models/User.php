@@ -76,6 +76,7 @@ class User extends Authenticatable implements HasLocalePreference
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'type' => UserTypes::class,
         ];
     }
 }
