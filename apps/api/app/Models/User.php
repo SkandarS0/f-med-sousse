@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Enums\UserTypes;
+use App\Enums\UserType;
 use Database\Factories\UserFactory;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Translation\HasLocalePreference;
@@ -42,8 +42,8 @@ class User extends Authenticatable implements HasLocalePreference
     protected string $childColumn = 'type';
 
     protected array $childTypes = [
-        UserTypes::Student->value => Student::class,
-        UserTypes::Admin->value => Admin::class,
+        UserType::Student->value => Student::class,
+        UserType::Admin->value => Admin::class,
     ];
 
     /**
@@ -76,7 +76,7 @@ class User extends Authenticatable implements HasLocalePreference
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'type' => UserTypes::class,
+            'type' => UserType::class,
         ];
     }
 }
