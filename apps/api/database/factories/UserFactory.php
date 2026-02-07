@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\UserType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -34,7 +35,7 @@ final class UserFactory extends Factory
             'password' => self::$password ??= Hash::make('password'),
             'locale' => fake()->randomElement(config('app.supported_locales')),
             'remember_token' => Str::random(10),
-            'type' => 'student',
+            'type' => UserType::Student,
             'created_by' => User::factory()->admin()->noCreator(),
         ];
     }
@@ -49,7 +50,7 @@ final class UserFactory extends Factory
     public function admin(): self
     {
         return $this->state(fn (array $attributes): array => [
-            'type' => 'admin',
+            'type' => UserType::Admin,
         ]);
     }
 
@@ -66,7 +67,7 @@ final class UserFactory extends Factory
     public function student(): self
     {
         return $this->state(fn (array $attributes): array => [
-            'type' => 'student',
+            'type' => UserType::Student,
         ]);
     }
 }
