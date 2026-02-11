@@ -18,5 +18,5 @@ export function useAuthLogin() {
 
 async function loginRequest(data: LoginRequestBody) {
   await getCsrfCookie();
-  return await api.post<LoginResponseBody>("/auth/login", data);
+  return await api.post<LoginResponseBody>("/api/auth/login", data);
 }

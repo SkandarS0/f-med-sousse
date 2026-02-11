@@ -1,8 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import type {
-  ForgotPasswordRequestBody,
-  ForgotPasswordResponseBody,
-} from "@/pages/forgot-password/api/dto.ts";
+import type { ForgotPasswordRequestBody, ForgotPasswordResponseBody, } from "@/pages/forgot-password/api/dto.ts";
 import type { ForgotPasswordFormSchema } from "@/pages/forgot-password/model/schema.ts";
 import { api, getCsrfCookie } from "@/shared/api/axios.ts";
 
@@ -17,6 +14,6 @@ export function useAuthForgotPassword() {
 
 async function forgotPasswordRequest(data: ForgotPasswordRequestBody) {
   return await getCsrfCookie().then(() =>
-    api.post<ForgotPasswordResponseBody>("/auth/forgot-password", data),
+    api.post<ForgotPasswordResponseBody>("/api/forgot-password", data),
   );
 }
