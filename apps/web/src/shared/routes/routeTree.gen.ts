@@ -20,6 +20,8 @@ import { Route as portalStudentRouteRouteImport } from './../../app/routes/(port
 import { Route as portalAdminRouteRouteImport } from './../../app/routes/(portal)/admin/route.tsx'
 import { Route as portalStudentIndexRouteImport } from './../../app/routes/(portal)/student/index.tsx'
 import { Route as portalAdminIndexRouteImport } from './../../app/routes/(portal)/admin/index.tsx'
+import { Route as portalAdminClassesIndexRouteImport } from './../../app/routes/(portal)/admin/classes/index.tsx'
+import { Route as portalAdminClassesSlugRouteImport } from './../../app/routes/(portal)/admin/classes/$slug.tsx'
 
 const PortalRoute = PortalRouteImport.update({
   id: '/portal',
@@ -74,6 +76,16 @@ const portalAdminIndexRoute = portalAdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => portalAdminRouteRoute,
 } as any)
+const portalAdminClassesIndexRoute = portalAdminClassesIndexRouteImport.update({
+  id: '/classes/',
+  path: '/classes/',
+  getParentRoute: () => portalAdminRouteRoute,
+} as any)
+const portalAdminClassesSlugRoute = portalAdminClassesSlugRouteImport.update({
+  id: '/classes/$slug',
+  path: '/classes/$slug',
+  getParentRoute: () => portalAdminRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/portal': typeof PortalRoute
@@ -85,6 +97,8 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof guestResetPasswordRoute
   '/admin/': typeof portalAdminIndexRoute
   '/student/': typeof portalStudentIndexRoute
+  '/admin/classes/$slug': typeof portalAdminClassesSlugRoute
+  '/admin/classes/': typeof portalAdminClassesIndexRoute
 }
 export interface FileRoutesByTo {
   '/portal': typeof PortalRoute
@@ -94,6 +108,8 @@ export interface FileRoutesByTo {
   '/reset-password': typeof guestResetPasswordRoute
   '/admin': typeof portalAdminIndexRoute
   '/student': typeof portalStudentIndexRoute
+  '/admin/classes/$slug': typeof portalAdminClassesSlugRoute
+  '/admin/classes': typeof portalAdminClassesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -108,6 +124,8 @@ export interface FileRoutesById {
   '/(guest)/reset-password': typeof guestResetPasswordRoute
   '/(portal)/admin/': typeof portalAdminIndexRoute
   '/(portal)/student/': typeof portalStudentIndexRoute
+  '/(portal)/admin/classes/$slug': typeof portalAdminClassesSlugRoute
+  '/(portal)/admin/classes/': typeof portalAdminClassesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +139,8 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/admin/'
     | '/student/'
+    | '/admin/classes/$slug'
+    | '/admin/classes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/portal'
@@ -130,6 +150,8 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/admin'
     | '/student'
+    | '/admin/classes/$slug'
+    | '/admin/classes'
   id:
     | '__root__'
     | '/(guest)'
@@ -143,6 +165,8 @@ export interface FileRouteTypes {
     | '/(guest)/reset-password'
     | '/(portal)/admin/'
     | '/(portal)/student/'
+    | '/(portal)/admin/classes/$slug'
+    | '/(portal)/admin/classes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -231,6 +255,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof portalAdminIndexRouteImport
       parentRoute: typeof portalAdminRouteRoute
     }
+    '/(portal)/admin/classes/': {
+      id: '/(portal)/admin/classes/'
+      path: '/classes'
+      fullPath: '/admin/classes/'
+      preLoaderRoute: typeof portalAdminClassesIndexRouteImport
+      parentRoute: typeof portalAdminRouteRoute
+    }
+    '/(portal)/admin/classes/$slug': {
+      id: '/(portal)/admin/classes/$slug'
+      path: '/classes/$slug'
+      fullPath: '/admin/classes/$slug'
+      preLoaderRoute: typeof portalAdminClassesSlugRouteImport
+      parentRoute: typeof portalAdminRouteRoute
+    }
   }
 }
 
@@ -252,10 +290,14 @@ const guestRouteRouteWithChildren = guestRouteRoute._addFileChildren(
 
 interface portalAdminRouteRouteChildren {
   portalAdminIndexRoute: typeof portalAdminIndexRoute
+  portalAdminClassesSlugRoute: typeof portalAdminClassesSlugRoute
+  portalAdminClassesIndexRoute: typeof portalAdminClassesIndexRoute
 }
 
 const portalAdminRouteRouteChildren: portalAdminRouteRouteChildren = {
   portalAdminIndexRoute: portalAdminIndexRoute,
+  portalAdminClassesSlugRoute: portalAdminClassesSlugRoute,
+  portalAdminClassesIndexRoute: portalAdminClassesIndexRoute,
 }
 
 const portalAdminRouteRouteWithChildren =
