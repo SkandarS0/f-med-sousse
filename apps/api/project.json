@@ -41,7 +41,20 @@
       "options": {
         "command": "php artisan test",
         "cwd": "{projectRoot}",
-        "args":["--colors=always", "--bail", "--compact"]
+        "args": ["--colors=always", "--bail", "--compact"],
+        "env": {
+          "APP_ENV": "testing",
+          "APP_MAINTENANCE_DRIVER": "file",
+          "BCRYPT_ROUNDS": "4",
+          "CACHE_STORE": "array",
+          "DB_CONNECTION": "sqlite",
+          "DB_DATABASE": "database/testing.sqlite",
+          "MAIL_MAILER": "array",
+          "PULSE_ENABLED": "false",
+          "QUEUE_CONNECTION": "sync",
+          "SESSION_DRIVER": "array",
+          "TELESCOPE_ENABLED": "false"
+        }
       }
     },
     "db:migrate": {
