@@ -34,6 +34,7 @@
     },
     "test": {
       "executor": "nx:run-commands",
+      "env": false,
       "cache": true,
       "inputs": [
         "testing"
