@@ -11,7 +11,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.14",
+    "@biomejs/biome": "^2.3.15",
     "@types/node": "^24.10.13",
     "i18next-cli": "^1.42.8",
     "nx": "^22.5.0",
