@@ -1,23 +1,27 @@
 export default {
-  "/login": {
+  login: {
     title: "Login",
   },
-  "/forgot-password": {
+  "forgot-password": {
     title: "Forgot Password",
   },
-  "/reset-password": {
+  "reset-password": {
     title: "Reset Password",
   },
-  "/portal": {
+  portal: {
     title: "Portal",
   },
-  "/admin": {
+  admin: {
     title: "Admin Portal",
+    classes: {
+      title: "Classes",
+      $slug: { title: "Class {{slug}}" },
+    },
   },
-  "/student": {
+  student: {
     title: "Student Portal",
   },
-  "/unauthorized": {
+  unauthorized: {
     title: "Unauthorized",
   },
 };

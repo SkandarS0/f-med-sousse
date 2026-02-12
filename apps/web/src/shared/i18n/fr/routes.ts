@@ -1,23 +1,27 @@
 export default {
-  "/login": {
+  login: {
     title: "Connexion",
   },
-  "/forgot-password": {
+  "forgot-password": {
     title: "Mot de passe oublié",
   },
-  "/reset-password": {
+  "reset-password": {
     title: "Réinitialiser le mot de passe",
   },
-  "/portal": {
+  portal: {
     title: "Portail",
   },
-  "/admin": {
+  admin: {
     title: "Portail administrateur",
+    classes: {
+      title: "Classes",
+      $slug: { title: "Classe {{slug}}" },
+    },
   },
-  "/student": {
+  student: {
     title: "Portail étudiant",
   },
-  "/unauthorized": {
+  unauthorized: {
     title: "Non autorisé",
   },
 };
