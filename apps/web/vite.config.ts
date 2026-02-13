@@ -12,15 +12,15 @@ export default defineConfig({
         codeSplitting: {
           groups: [
             {
-              test: /node_modules\/(react|react-dom)/,
+              test: /node_modules[\\/](react|react-dom)/,
               name: "react",
             },
             {
-              test: /node_modules\/(@tanstack\/router|@tanstack\/react-router)/,
+              test: /node_modules[\\/](@tanstack\/router|@tanstack\/react-router)/,
               name: "router",
             },
             {
-              test: /node_modules\/(zod)/,
+              test: /node_modules[\\/](zod)/,
               name: "validation",
             },
           ],
